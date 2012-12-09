@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: if-elif
+# key: if
+# --
+if ${1:condition}:
+  $2
+elif ${3:condition}:
+  $4

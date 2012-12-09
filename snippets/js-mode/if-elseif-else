@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+# key: if
+# name: if-elseif-else
+# --
+if (${1:true}) {
+  $3
+}
+else if (${2:true}) {
+  $4
+}else {
+  $5
+};

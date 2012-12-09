@@ -1,0 +1,8 @@
+# -*- coding: utf-8 -*-
+# key: for
+# name: for
+# expand-env: ((yas/indent-line 'fixed))
+# --
+{% for ${1:item} in ${2:items} %}
+  $0
+{% endfor %}
