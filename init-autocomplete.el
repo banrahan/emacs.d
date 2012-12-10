@@ -12,7 +12,20 @@
 (define-key ac-completing-map (kbd "C-n") 'ac-next)
 (define-key ac-completing-map (kbd "C-p") 'ac-previous)
 
-(dolist (mode '(django-mode django-html-mode sql-mode))
+(set-default 'ac-sources '(ac-source-features
+ ac-source-functions
+ ac-source-yasnippet
+ ac-source-variables
+ ac-source-symbols
+ ac-source-filename
+ ac-source-files-in-current-dir
+ ac-source-abbrev
+ ac-source-dictionary
+ ac-source-words-in-same-mode-buffers))
+
+
+(dolist (mode '(django-mode django-html-mode sql-mode
+                html-mode))
   (add-to-list 'ac-modes mode))
 
 (provide 'init-autocomplete)
