@@ -16,6 +16,7 @@
 (require 'init-django)
 (require 'init-org)
 (require 'init-snippets)
+(require 'init-autopair)
 (require 'init-indentation)
 
 ;; magit for git support
