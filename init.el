@@ -5,18 +5,11 @@
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/site-elisp")
 
-;; package mangement
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-
-(package-initialize)
-
 ;;-----------------------------------------
 ;; Load configs for features and modes
 ;;-----------------------------------------
+(require 'init-compatability)
+(require 'init-elpa)
 (require 'init-general)
 (require 'init-autocomplete)
 (require 'init-python)
