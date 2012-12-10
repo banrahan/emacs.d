@@ -1,0 +1,7 @@
+# -*- coding: utf-8 -*-
+# key: function
+# name: function
+# --
+${1:name} : function(${2:parameters)) {
+  $0
+}

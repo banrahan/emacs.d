@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+# key: switch
+# name: switch
+# --
+switch (${1:var}) {
+case ${2:value}:
+  $3
+  break;
+default:
+  break;
+}
