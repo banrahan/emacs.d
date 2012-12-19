@@ -1,0 +1,7 @@
+# -*- coding: utf-8 -*-
+# key: for
+# name: foreach
+# --
+for (var ${1:value} in ${2:collection}) {
+  $0
+};

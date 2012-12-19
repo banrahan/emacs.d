@@ -6,6 +6,7 @@
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
+
 (setq org-agenda-custom-commands
       '(("I" "Immediate"
          ((agenda "" ((org-agenda-ndays 1))) ;; limits the agenda display to a single day

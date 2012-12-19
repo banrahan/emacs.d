@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: bold
+# binding: C-c C-c C-b
+# --
+\textbf{$0}
