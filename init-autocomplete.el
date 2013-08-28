@@ -3,7 +3,7 @@
 
 (global-auto-complete-mode t)
 (ac-config-default)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete/dict")
 
 ;; bind c-tab to autocomplete
 (global-set-key (kbd "C-<tab>") 'auto-complete)
@@ -25,7 +25,7 @@
 
 
 (dolist (mode '(django-mode django-html-mode sql-mode
-                html-mode))
+                html-mode LaTeX-mode))
   (add-to-list 'ac-modes mode))
 
 (provide 'init-autocomplete)

@@ -9,6 +9,9 @@
 (setq make-backup-files nil) ; stop creating those backup~ files
 (setq auto-save-default nil) ; stop creating those #autosave# files
 
+;; Have buffers revert if the file was changed
+(global-auto-revert-mode t)
+
 ;; turn on cua
 (cua-mode t)
 

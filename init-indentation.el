@@ -9,14 +9,14 @@
 (add-hook 'python-mode-hook
           (function (lambda ()
                      (setq indent-tabs-mode nil
-                           tab-width 2))))
+                           tab-width 4))))
 (add-hook 'javascript-mode
           (function (lambda ()
                      (setq indent-tabs-mode nil
-                           tab-width 2))))
+                           tab-width 4))))
  
-(setq js-indent-level 2)
-(setq css-indent-offset 2)
-(setq python-indent 2)
+(setq js-indent-level 4)
+(setq css-indent-offset 4)
+(setq python-indent 4)
 
 (provide 'init-indentation)

@@ -2,7 +2,7 @@
 (require 'yasnippet)
 
 (setq yas-snippet-dirs
-      '("~/.emacs.d/elpa/yasnippet-20121127.25/snippets"
+      '("~/.emacs.d/elpa/yasnippet/snippets"
         "~/.emacs.d/snippets"
         ))
 

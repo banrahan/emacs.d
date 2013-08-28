@@ -1,6 +1,6 @@
 ;; ropemacs
 (require 'pymacs)
-(require 'python-mode)
+;(autoload 'python-mode "python-mode" "Python Mode." t)
 (autoload 'pymacs-apply "pymacs")
 (autoload 'pymacs-call "pymacs")
 (autoload 'pymacs-eval "pymacs" nil t)

@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: emph
-# binding: C-c C-c C-e
-# --
-\emph{$0}
