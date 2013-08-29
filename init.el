@@ -15,7 +15,7 @@
 (require 'init-general)
 (require 'init-autocomplete)
 (require 'init-python)
-;(require 'init-django)
+(require 'init-django)
 (require 'init-latex)
 (require 'init-org)
 (require 'init-snippets)
@@ -34,6 +34,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cua-mode t nil (cua-base))
+ '(safe-local-variable-values (quote ((pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/env/bin/python"))))
  '(tool-bar-mode nil))
 ;(put 'upcase-region 'disabled nil)
 ;(put 'dired-find-alternate-file 'disabled nil)
@@ -43,3 +44,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#fdf6e3" :foreground "#657b83" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 180 :width normal :foundry "apple" :family "Monaco")))))
+
