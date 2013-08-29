@@ -7,6 +7,8 @@
 ;; restore control-u as up half a page
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 
+;; turn on surround
+(require 'surround)
+(global-surround-mode 1)
 
 (provide 'init-evil)
-

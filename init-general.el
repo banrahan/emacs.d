@@ -12,6 +12,9 @@
 ;; Have buffers revert if the file was changed
 (global-auto-revert-mode t)
 
+;; Turn off that blasted blinking cursor
+(blink-cursor-mode 0)
+
 ;; turn on cua
 (cua-mode t)
 
@@ -28,5 +31,8 @@
 (global-set-key (kbd "M-<right>") 'windmove-right)        ; move to right window
 (global-set-key (kbd "M-<up>") 'windmove-up)              ; move to upper window
 (global-set-key (kbd "M-<down>") 'windmove-down)          ; move to downer window
+
+;; flycheck
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 (provide 'init-general)
