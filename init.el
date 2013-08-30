@@ -21,6 +21,7 @@
 (require 'init-snippets)
 ;(require 'init-autopair)
 (require 'init-indentation)
+(require 'init-helm)
 
 ;; magit for git support
 ;(require 'magit)
