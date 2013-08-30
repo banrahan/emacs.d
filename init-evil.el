@@ -11,4 +11,9 @@
 (require 'surround)
 (global-surround-mode 1)
 
+;; turn on evil numbers
+(require 'evil-numbers)
+(global-set-key (kbd "C-c +") 'evil-numbers/inc-at-pt)
+(global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
+
 (provide 'init-evil)
