@@ -26,4 +26,8 @@
        ))
 )
 
+(setq org-default-priority 57)
+(setq org-highest-priority 48)
+(setq org-lowest-priority 57)
+
 (provide 'init-org)
