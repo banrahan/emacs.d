@@ -27,7 +27,7 @@
 ;(require 'magit)
 
 ;; ESS for R support
-;(require 'ess-site)
+(require 'ess-site)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
