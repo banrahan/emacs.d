@@ -7,6 +7,7 @@
 (progn (cd "~/.emacs.d/site-elisp")
        (normal-top-level-add-subdirs-to-load-path))
 
+
 ;;-----------------------------------------
 ;; Load configs for features and modes
 ;;-----------------------------------------
@@ -22,6 +23,7 @@
 ;(require 'init-autopair)
 (require 'init-indentation)
 (require 'init-helm)
+(require 'init-multi-cursor)
 
 ;; magit for git support
 ;(require 'magit)
