@@ -6,9 +6,10 @@
 (load-library "find-lisp")
 
 ;; from working
-(setq org-agenda-files (find-lisp-find-files "~/working" "\.org$"))
-
 ;; from projects
+(setq org-agenda-files (find-lisp-find-files "~/working" "\.org$"))
+(add-to-list 'org-agenda-files '"~/working/org/inbox.org")
+
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
 (add-hook 'org-mode-hook 'turn-on-font-lock) ; not needed when global-font-lock-mode is on
