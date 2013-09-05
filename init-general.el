@@ -23,8 +23,10 @@
 ;;; Key Bindings
 
 ;; add super-5 for m-x
-(setq mac-command-modifier 'super)
 (global-set-key (kbd "s-5") 'execute-extended-command)
+
+;; commenting
+(global-set-key (kbd "s-/") 'comment-or-uncomment-region)
 
 ;; better scrolling
 (global-set-key "\M-n"  (lambda () (interactive) (scroll-up   16)) )
