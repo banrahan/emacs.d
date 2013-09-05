@@ -8,7 +8,6 @@
 ;; from working
 ;; from projects
 (setq org-agenda-files (find-lisp-find-files "~/working" "\.org$"))
-(add-to-list 'org-agenda-files '"~/working/org/inbox.org")
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
