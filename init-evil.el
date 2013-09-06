@@ -2,7 +2,7 @@
 (evil-mode 1)
 
 ;; set the toggle key
-(evil-set-toggle-key "<f13>")
+(evil-set-toggle-key "s-=")
 
 ;; restore control-u as up half a page
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
