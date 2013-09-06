@@ -19,7 +19,7 @@
 (require 'init-latex)
 (require 'init-org)
 (require 'init-snippets)
-;(require 'init-autopair)
+(require 'init-autopair)
 (require 'init-indentation)
 (require 'init-helm)
 (require 'init-multiple-cursors)
