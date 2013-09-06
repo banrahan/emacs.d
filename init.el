@@ -22,6 +22,7 @@
 ;(require 'init-autopair)
 (require 'init-indentation)
 (require 'init-helm)
+(require 'init-multiple-cursors)
 
 ;; magit for git support
 ;(require 'magit)
