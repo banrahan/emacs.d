@@ -1,4 +1,5 @@
 (setenv "PATH"
+        
    (getenv "PATH")
 )
 
@@ -23,6 +24,8 @@
 (require 'init-indentation)
 (require 'init-helm)
 (require 'init-multiple-cursors)
+(require 'init-emmet)
+(require 'init-acejump)
 
 ;; magit for git support
 ;(require 'magit)
