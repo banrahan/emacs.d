@@ -26,6 +26,7 @@
 (require 'init-multiple-cursors)
 (require 'init-emmet)
 (require 'init-acejump)
+(require 'init-expand-region)
 
 ;; magit for git support
 ;(require 'magit)
