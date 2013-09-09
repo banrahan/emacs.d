@@ -36,7 +36,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cua-mode t nil (cua-base))
- '(safe-local-variable-values (quote ((pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/env/bin/python"))))
+ '(safe-local-variable-values
+   (quote
+    ((pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/bin/python")
+     (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/env/bin/python"))))
  '(tool-bar-mode nil))
 ;(put 'upcase-region 'disabled nil)
 ;(put 'dired-find-alternate-file 'disabled nil)
