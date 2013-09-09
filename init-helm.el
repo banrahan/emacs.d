@@ -3,9 +3,9 @@
 
 (setq helm-idle-delay 0.1)
 (setq helm-input-idle-delay 0.1)
-
 ;; set the locate command to use spotlight and a script
-(setq helm-c-locate-command "locate-with-mdfind %.0s %s")
+(setq helm-c-locate-command "locate_with_mdfind %.0s %s")
+
 (loop for ext in '("\\.swf$" "\\.elc$" "\\.pyc$")
       do (add-to-list 'helm-c-source-mac-spotlight ext))
 ;(define-key global-map [(alt t)] 'helm-for-files)
