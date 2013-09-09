@@ -32,6 +32,9 @@
 (global-set-key "\M-n"  (lambda () (interactive) (scroll-up   16)) )
 (global-set-key "\M-p"  (lambda () (interactive) (scroll-down 16)) )
 
+;; ctags stuff
+(global-set-key (kbd "s-.") 'find-tag)
+
 ;; better window management commands
 (global-set-key (kbd "M-<left>") 'windmove-left)          ; move to left windnow
 (global-set-key (kbd "M-<right>") 'windmove-right)        ; move to right window
