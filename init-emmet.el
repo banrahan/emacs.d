@@ -4,4 +4,4 @@
 (add-hook 'html-mode-hook 'emmet-mode)
 (add-hook 'css-mode-hook  'emmet-mode)
 
-(provide init-emmet)
+(provide 'init-emmet)
