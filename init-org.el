@@ -2,6 +2,9 @@
 ;; The following lines are always needed. Choose your own keys.
 (require 'org)
 
+;; don't truncate lines
+(setq org-startup-truncated nil)
+
 ;; recursively add org files
 (load-library "find-lisp")
 
