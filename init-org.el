@@ -13,7 +13,7 @@
 
 ;; from working
 ;; from projects
-(setq org-agenda-files (find-lisp-find-files "~/Dropbox/org" "\.org$"))
+(setq org-agenda-files (find-lisp-find-files "~/Dropbox/org/" "\.org$"))
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
@@ -42,6 +42,15 @@
 (setq org-lowest-priority 57)
 
 ;; setup capture
-(setq org-default-notes-file "~/Dropbox/org/inbox.org")
+(setq org-default-notes-file "~/Dropbox/org/gtd.org")
 (define-key global-map "\C-cc" 'org-capture)
+(setq org-capture-templates
+      '(("i" "Inbox" entry (file+headline "~/Dropbox/org/gtd.org" "Inbox")
+             "* TODO %?")))
+
+; Targets include this file and any file contributing to the agenda - up to 9 levels deep
+(setq org-refile-targets (quote ((nil :maxlevel . 1)
+                                 (org-agenda-files :maxlevel . 1))))
+
+
 (provide 'init-org)

@@ -40,9 +40,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cua-mode t nil (cua-base))
- '(org-agenda-files
-   (quote
-    ("/Users/bhanraha/working/dissertation/dissertation.org" "/Users/bhanraha/working/2014_chi_email_sessions/email_sessions.org")))
+ '(org-agenda-files nil)
  '(safe-local-variable-values
    (quote
     ((pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/bin/python")
