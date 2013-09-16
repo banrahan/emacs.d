@@ -29,7 +29,7 @@
 (require 'init-expand-region)
 
 ;; magit for git support
-;(require 'magit)
+(require 'magit)
 
 ;; ESS for R support
 (require 'ess-site)
@@ -40,6 +40,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cua-mode t nil (cua-base))
+ '(org-agenda-files
+   (quote
+    ("/Users/bhanraha/working/dissertation/dissertation.org" "/Users/bhanraha/working/2014_chi_email_sessions/email_sessions.org")))
  '(safe-local-variable-values
    (quote
     ((pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/bin/python")
@@ -54,3 +57,6 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#fdf6e3" :foreground "#657b83" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 180 :width normal :foundry "apple" :family "Monaco")))))
 
+(put 'downcase-region 'disabled nil)
+(put 'set-goal-column 'disabled nil
+)

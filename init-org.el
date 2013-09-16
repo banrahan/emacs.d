@@ -5,12 +5,15 @@
 ;; don't truncate lines
 (setq org-startup-truncated nil)
 
+;; turn on follow mode
+(setq org-agenda-start-with-follow-mode t)
+
 ;; recursively add org files
 (load-library "find-lisp")
 
 ;; from working
 ;; from projects
-(setq org-agenda-files (find-lisp-find-files "~/working" "\.org$"))
+(setq org-agenda-files (find-lisp-find-files "~/Dropbox/org" "\.org$"))
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
@@ -39,6 +42,6 @@
 (setq org-lowest-priority 57)
 
 ;; setup capture
-(setq org-default-notes-file "~/working/org/inbox.org")
+(setq org-default-notes-file "~/Dropbox/org/inbox.org")
 (define-key global-map "\C-cc" 'org-capture)
 (provide 'init-org)

@@ -44,8 +44,7 @@
 ;; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
-;; disable menu
-(menu-bar-mode 0)
+;; disable toolbar
 (tool-bar-mode 0)
 
 (provide 'init-general)
