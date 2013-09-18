@@ -61,9 +61,7 @@
 (require 'init-emmet)
 (require 'init-acejump)
 (require 'init-expand-region)
-
-;; magit for git support
-(require 'magit)
+(require 'init-magit)
 
 ;; ESS for R support
 (require 'ess-site)
