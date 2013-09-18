@@ -20,7 +20,9 @@
 ;; cmd t stuff
 (push "~/.emacs.d/site-elisp/helm-cmd-t" load-path)
 (require 'helm-cmd-t)
-(global-set-key (kbd "M-t") 'helm-cmd-t)
+(global-set-key (kbd "s-t") 'helm-cmd-t)
+;; cmd r stuff
+(global-set-key (kbd "s-r") 'helm-imenu)
 
 ;; customize helm-mini
 (defun helm-mini ()
