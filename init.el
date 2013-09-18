@@ -17,6 +17,10 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cua-mode t nil (cua-base))
+ '(custom-enabled-themes (quote (solarized-light)))
+ '(custom-safe-themes
+   (quote
+    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(safe-local-variable-values
    (quote
     ((pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/bin/python")
@@ -28,10 +32,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#fdf6e3" :foreground "#657b83" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 180 :width normal :foundry "apple" :family "Monaco")))))
+ '(default ((t ( :height 180  :foundry "apple" :family "Monaco")))))
 
 (put 'downcase-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
+
+;; load theme
+(package-initialize)
+(load-theme 'solarized-light t)
 
 ;;-----------------------------------------
 ;; Load configs for features and modes
@@ -59,5 +67,12 @@
 ;; ESS for R support
 (require 'ess-site)
 
+;;; init.el ends here
 
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
