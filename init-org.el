@@ -8,12 +8,10 @@
 ;; turn on follow mode
 (setq org-agenda-start-with-follow-mode t)
 
-;; recursively add org files
-(load-library "find-lisp")
-
-;; from working
-;; from projects
-(setq org-agenda-files (find-lisp-find-files "~/Dropbox/org/" "\.org$"))
+;; import todos
+(setq org-agenda-files (list "~/Dropbox/org/gtd.org"
+                             "~/Dropbox/org/work.org"
+                             "~/Dropbox/org/dissertation.org"))
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 

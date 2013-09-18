@@ -9,6 +9,31 @@
        (normal-top-level-add-subdirs-to-load-path))
 
 ;;-----------------------------------------
+;; All of the emacs auto stuff
+;;-----------------------------------------
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(cua-mode t nil (cua-base))
+ '(safe-local-variable-values
+   (quote
+    ((pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/bin/python")
+     (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/env/bin/python"))))
+ '(tool-bar-mode nil))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "#fdf6e3" :foreground "#657b83" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 180 :width normal :foundry "apple" :family "Monaco")))))
+
+(put 'downcase-region 'disabled nil)
+(put 'set-goal-column 'disabled nil)
+
+;;-----------------------------------------
 ;; Load configs for features and modes
 ;;-----------------------------------------
 (require 'init-elpa)
@@ -34,27 +59,5 @@
 ;; ESS for R support
 (require 'ess-site)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(cua-mode t nil (cua-base))
- '(org-agenda-files nil)
- '(safe-local-variable-values
-   (quote
-    ((pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/bin/python")
-     (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/env/bin/python"))))
- '(tool-bar-mode nil))
-;(put 'upcase-region 'disabled nil)
-;(put 'dired-find-alternate-file 'disabled nil)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#fdf6e3" :foreground "#657b83" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 180 :width normal :foundry "apple" :family "Monaco")))))
 
-(put 'downcase-region 'disabled nil)
-(put 'set-goal-column 'disabled nil
-)
+
