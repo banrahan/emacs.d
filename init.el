@@ -45,6 +45,7 @@
 ;; Load configs for features and modes
 ;;-----------------------------------------
 (require 'init-elpa)
+(require 'init-chord)
 (require 'init-evil)
 (require 'init-general)
 (require 'init-autocomplete)
