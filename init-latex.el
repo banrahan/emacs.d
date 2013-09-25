@@ -1,7 +1,13 @@
 (require 'tex-site)
 (require 'reftex)
+
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
+;(setq TeX-PDF-mode t)
+
+; turn on search for master
+(setq-default TeX-master nil) ; Query for master file.
+
 
 ; turn on reftex
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
