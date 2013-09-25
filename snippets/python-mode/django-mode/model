@@ -9,6 +9,3 @@ class ${1:MyModel}(models.Model):
     def __unicode__(self):
         return self.name
 
-    @models.permalink
-    def get_absolute_url(self):
-        pass

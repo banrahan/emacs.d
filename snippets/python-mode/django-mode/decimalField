@@ -1,0 +1,5 @@
+# -*- coding: utf-8 -*-
+# key: dec
+# name: dec
+# --
+${1:name} = models.DecimalField(max_digits={$2:19}, decimal_places={$3:10})

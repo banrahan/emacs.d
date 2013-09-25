@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: float
+# key: float
+# --
+${1:name} = models.FloatField()
