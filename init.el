@@ -20,9 +20,32 @@
  '(custom-safe-themes
    (quote
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+ '(org-deadline-warning-days 0)
  '(safe-local-variable-values
    (quote
-    ((pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/bin/python")
+    ((pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/ipython" :settings "settings")
+     (python-mode
+      (python-shell-interpreter . "python")
+      (python-shell-interpreter-args . "/Users/bhanraha/working/crowd_plugins/crowd_server/manage.py shell")
+      (python-shell-prompt-regexp . "In \\[[0-9]+\\]: ")
+      (python-shell-prompt-output-regexp . "Out\\[[0-9]+\\]: ")
+      (python-shell-completion-setup-code . "from IPython.core.completerlib import module_completion")
+      (python-shell-completion-module-string-code . "';'.join(module_completion('''%s'''))
+")
+      (python-shell-completion-string-code . "';'.join(get_ipython().Completer.all_completions('''%s'''))
+")
+      (python-shell-virtualenv-path . "/Users/bhanraha/working/env/crowd_server"))
+     (python-shell-completion-string-code . "';'.join(get_ipython().Completer.all_completions('''%s'''))
+")
+     (python-shell-completion-module-string-code . "';'.join(module_completion('''%s'''))
+")
+     (python-shell-completion-setup-code . "from IPython.core.completerlib import module_completion")
+     (python-shell-interpreter-args . "/Users/bhanraha/working/crowd_plugins/crowd_server/manage.py shell")
+     (python-shell-interpreter . "python")
+     (pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/python" :settings "settings" :pony-sqlite-program "/usr/bin/sqlite3")
+     (pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/python" :settings "settings")
+     (pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/python")
+     (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/bin/python")
      (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/env/bin/python"))))
  '(tool-bar-mode nil))
 

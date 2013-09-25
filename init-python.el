@@ -1,6 +1,10 @@
 ;; ropemacs
 (require 'pymacs)
 
+;(setq ipython-command "/usr/local/bin/ipython")
+;(require 'ipython)
+
+
 ;; pymacs stuff
 (autoload 'pymacs-apply "pymacs")
 (autoload 'pymacs-call "pymacs")
