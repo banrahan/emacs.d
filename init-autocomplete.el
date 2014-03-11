@@ -1,9 +1,20 @@
+;;; init-autocomplete.el --- Autocomplete setting
+;;
+;;; Commentary:
+;;
+;; <c-tab> is the autocomplete key
+;; popup is set to be immediate
+;;
+
+;;; Code:
 (require 'auto-complete)
 (require 'auto-complete-config)
 
 (global-auto-complete-mode t)
 (ac-config-default)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete/dict")
+
+(setq ac-auto-show-menu 0)
 
 ;; bind c-tab to autocomplete
 (global-set-key (kbd "C-<tab>") 'auto-complete)
@@ -29,3 +40,5 @@
   (add-to-list 'ac-modes mode))
 
 (provide 'init-autocomplete)
+
+;;; init-autocomplete.el ends here
