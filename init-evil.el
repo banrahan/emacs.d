@@ -1,5 +1,5 @@
 (require 'evil)
-(evil-mode 0)
+(evil-mode 1)
 
 ;; set the toggle key
 (evil-set-toggle-key "s-=")
