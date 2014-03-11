@@ -34,4 +34,12 @@
                        helm-c-source-buffer-not-found)
                      "*helm mini*"))
 
+
+;; yasnippet stuff
+(require 'yasnippet)
+(require 'helm-c-yasnippet)
+(setq helm-yas-space-match-any-greedy t) ;[default: nil]
+(setq helm-yas-display-key-on-candidate t)
+(global-set-key (kbd "s-y") 'helm-yas-complete)
+
 (provide 'init-helm)
