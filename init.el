@@ -20,6 +20,9 @@
  '(custom-safe-themes
    (quote
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+ '(org-agenda-files
+   (quote
+    ("/Users/bhanraha/Dropbox/org/dissertation.org" "/Users/bhanraha/Dropbox/org/gtd.org" "/Users/bhanraha/Dropbox/org/inbox.org" "/Users/bhanraha/Dropbox/org/index.org" "/Users/bhanraha/Dropbox/org/work.org")))
  '(org-deadline-warning-days 0)
  '(safe-local-variable-values
    (quote
@@ -67,7 +70,7 @@
 ;; Load configs for features and modes
 ;;-----------------------------------------
 (require 'init-elpa)
-(require 'init-chord)
+;(require 'init-chord)
 (require 'init-evil)
 (require 'init-general)
 (require 'init-autocomplete)
@@ -79,10 +82,10 @@
 (require 'init-autopair)
 (require 'init-indentation)
 (require 'init-helm)
-(require 'init-multiple-cursors)
+;; (require 'init-multiple-cursors)
 (require 'init-emmet)
-(require 'init-acejump)
-(require 'init-expand-region)
+;; (require 'init-acejump)
+;; (require 'init-expand-region)
 (require 'init-magit)
 
 ;; ESS for R support

@@ -1,6 +1,6 @@
 (require 'magit)
 
-(key-chord-define-global "ms" 'magit-status)
+;(key-chord-define-global "mm" 'magit-status)
 
 (provide 'init-magit)
 
