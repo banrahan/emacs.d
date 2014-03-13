@@ -76,6 +76,6 @@
 		   (file-truename (buffer-file-name)))
            (org-mobile-push-with-delay 30)))
    )))
-
-(run-at-time "00:05" 86400 '(lambda () (org-mobile-push-with-delay 1))) ;; refreshes agenda file each day
+  
+;(run-at-time "00:05" 86400 '(lambda () (org-mobile-push-with-delay 1))) ;; refreshes agenda file each day
 (provide 'init-org)
