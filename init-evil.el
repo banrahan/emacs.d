@@ -16,4 +16,14 @@
 (global-set-key (kbd "C-c =") 'evil-numbers/inc-at-pt)
 (global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
 
+;; folding
+(outline-minor-mode 1)
+(define-key evil-normal-state-map "zo" 'outline-toggle-children)
+(define-key evil-normal-state-map "zO" 'show-subtree)
+(define-key evil-normal-state-map "zM" 'hide-body)
+(define-key evil-normal-state-map "zR" 'show-all)
+(define-key evil-normal-state-map "zj" 'outline-next-visible-heading)
+(define-key evil-normal-state-map "zk" 'outline-previous-visible-heading)
+(define-key evil-normal-state-map "zc" 'hide-subtree)
+  
 (provide 'init-evil)
