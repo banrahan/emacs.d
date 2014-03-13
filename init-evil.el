@@ -25,5 +25,9 @@
 (define-key evil-normal-state-map "zj" 'outline-next-visible-heading)
 (define-key evil-normal-state-map "zk" 'outline-previous-visible-heading)
 (define-key evil-normal-state-map "zc" 'hide-subtree)
+
+;; org mode agenda mappings
+(define-key org-agenda-mode-map "j" 'evil-next-line)
+(define-key org-agenda-mode-map "k" 'evil-previous-line)
   
 (provide 'init-evil)
