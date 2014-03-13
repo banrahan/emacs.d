@@ -70,7 +70,6 @@
 ;; Load configs for features and modes
 ;;-----------------------------------------
 (require 'init-elpa)
-;(require 'init-chord)
 (require 'init-evil)
 (require 'init-general)
 (require 'init-autocomplete)
@@ -82,10 +81,7 @@
 (require 'init-autopair)
 (require 'init-indentation)
 (require 'init-helm)
-;; (require 'init-multiple-cursors)
 (require 'init-emmet)
-;; (require 'init-acejump)
-;; (require 'init-expand-region)
 (require 'init-magit)
 
 ;; ESS for R support
