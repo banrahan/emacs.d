@@ -24,10 +24,12 @@
 (define-key evil-normal-state-map "zR" 'show-all)
 (define-key evil-normal-state-map "zj" 'outline-next-visible-heading)
 (define-key evil-normal-state-map "zk" 'outline-previous-visible-heading)
-(define-key evil-normal-state-map "zc" 'hide-subtree)
 
-;; org mode agenda mappings
-(define-key org-agenda-mode-map "j" 'evil-next-line)
-(define-key org-agenda-mode-map "k" 'evil-previous-line)
-  
+;; org agenda evil movement commands
+(eval-after-load "org-agenda" 
+'(progn
+    (define-key org-agenda-mode-map "j" 'evil-next-line)
+    (define-key org-agenda-mode-map "k" 'evil-previous-line))
+)
+
 (provide 'init-evil)
