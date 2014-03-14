@@ -18,7 +18,7 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-flyspell)
 
 ; auto-indentation
-(setq TeX-newline-function 'newline-and-indent)
-(setq LaTeX-indent-level 2)
+;(setq TeX-newline-function 'newline-and-indent)
+;(setq LaTeX-indent-level 4)
 
 (provide 'init-latex)

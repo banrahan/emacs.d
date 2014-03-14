@@ -42,4 +42,13 @@
 (setq helm-yas-display-key-on-candidate t)
 (global-set-key (kbd "s-y") 'helm-yas-complete)
 
+;; fix a problem with using cmd-t with fish (change && to ;)
+(setq helm-cmd-t-repo-types
+  `(("git"         ".git"           "cd %d ; git --no-pager ls-files --full-name")
+    ("hg"          ".hg"            "cd %d ; hg manifest")
+    ("bzr"         ".bzr"           "cd %d ; bzr ls --versioned")
+    ("dir-locals"  ".dir-locals.el" helm-cmd-t-get-find)
+    (""            ""               helm-cmd-t-get-find))
+)
+
 (provide 'init-helm)

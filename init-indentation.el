@@ -3,7 +3,7 @@
 
 ;; set tab to use spaces
 (setq-default indent-tabs-mode nil)    ; use only spaces and no tabs
-(setq default-tab-width 2) 
+(setq default-tab-width 4) 
 
 ;; you have to do hooks sometimes...
 (add-hook 'python-mode-hook
