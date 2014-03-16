@@ -455,11 +455,17 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 ;;;; Key Bindings
 ;;;;;;;;;;;;;;;;;;;;;;
 
-;; set the toggle key
-(evil-set-toggle-key "s-=")
-
-;; restore control-u as up half a page
-(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+;; evil bindings
+(evil-leader/set-key "k" 'kill-buffer)
+(evil-leader/set-key "+" 'evil-numbers/inc-at-pt)
+(evil-leader/set-key "=" 'evil-numbers/dec-at-pt)
+(evil-set-toggle-key "s-=") ; set the toggle key
+(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up) ; restore control-u as up half a page
+;; folding
+(define-key evil-normal-state-map "zo" 'banrahan-open-fold)
+(define-key evil-normal-state-map "zO" 'banrahan-open-folds)
+(define-key evil-normal-state-map "zc" 'banrahan-close-fold)
+(define-key evil-normal-state-map "zC" 'banrahan-close-folds)
 
 ;; org agenda evil movement commands
 (define-key org-agenda-mode-map "j" 'evil-next-line)
@@ -480,22 +486,6 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 ;; better scrolling
 (global-set-key "\M-n"  (lambda () (interactive) (scroll-up   16)) )
 (global-set-key "\M-p"  (lambda () (interactive) (scroll-down 16)) )
-
-;; ctags stuff
-(global-set-key (kbd "s-.") 'find-tag)
-
-;; generic evil bindings
-(evil-leader/set-key "k" 'kill-buffer)
-
-;; evil numbers
-(evil-leader/set-key "+" 'evil-numbers/inc-at-pt)
-(evil-leader/set-key "=" 'evil-numbers/dec-at-pt)
-
-;; folding
-(define-key evil-normal-state-map "zo" 'banrahan-open-fold)
-(define-key evil-normal-state-map "zO" 'banrahan-open-folds)
-(define-key evil-normal-state-map "zc" 'banrahan-close-fold)
-(define-key evil-normal-state-map "zC" 'banrahan-close-folds)
 
 ;; org key bindings  
 (evil-leader/set-key "a" 'org-agenda)
@@ -526,6 +516,9 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 
 ;; eshell
 (define-key evil-normal-state-map "!" 'eshell-here)
+
+;; magit
+(evil-leader/set-key "m" 'magit-status)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Emacs Auto Config
