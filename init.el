@@ -61,6 +61,7 @@
 (require 'helm-match-plugin)
 (require 'helm-cmd-t)
 (require 'helm-c-yasnippet)
+(require 'dired)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Evil
@@ -84,8 +85,18 @@
 (tool-bar-mode 0)
 
 ;; solarized
-(package-initialize)
 (load-theme 'solarized-light t)
+
+;; toggle dark and light
+(setq dark-light 'light)
+(defun banrahan-toggle-solarized ()
+  (interactive)
+  (if (eq dark-light 'light)
+      (progn (setq dark-light 'dark) (load-theme 'solarized-dark t))
+    (progn (setq dark-light 'light) (load-theme 'solarized-light t))
+    )
+  )
+
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; General settings
@@ -450,12 +461,18 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 ;; restore control-u as up half a page
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 
-;; repair org agenda evil movement commands
+;; org agenda evil movement commands
 (define-key org-agenda-mode-map "j" 'evil-next-line)
 (define-key org-agenda-mode-map "k" 'evil-previous-line)
-;; repair org agenda evil movement commands
+;; magit evil movement commands
 (define-key magit-status-mode-map (kbd "C-j") 'evil-next-line)
 (define-key magit-status-mode-map (kbd "C-k") 'evil-previous-line)
+;; dired evil movement commands
+(evil-define-key 'normal dired-mode-map "$" 'evil-end-of-line)
+(evil-define-key 'normal dired-mode-map "0" 'evil-beginning-of-line)
+
+;; toggle solarized
+(evil-leader/set-key "-" 'banrahan-toggle-solarized)
 
 ;; commenting
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
@@ -486,16 +503,16 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 
 ;; helm
 (evil-leader/set-key "f" 'helm-for-files)
-(evil-leader/set-key "F" 'helm-find-files)
+(evil-leader/set-key "d" 'helm-find-files)
 (evil-leader/set-key "t" 'helm-cmd-t)
 (evil-leader/set-key "r" 'helm-imenu)
 (evil-leader/set-key "x" 'helm-M-x)
-(evil-leader/set-key "y" 'helm-yas-complete)
 (evil-leader/set-key "p" 'banrahan-init-imenu)
 (evil-leader/set-key "o" 'banrahan-org-imenu)
 
 (global-set-key (kbd "s-t") 'helm-cmd-t)
 (global-set-key (kbd "s-r") 'helm-imenu)
+(global-set-key (kbd "s-y") 'helm-yas-complete)
 
 ;; django project
 (global-set-key (kbd "C-c C-o") 'python-django-open-project)
