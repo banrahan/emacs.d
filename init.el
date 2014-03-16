@@ -454,8 +454,8 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 (define-key org-agenda-mode-map "j" 'evil-next-line)
 (define-key org-agenda-mode-map "k" 'evil-previous-line)
 ;; repair org agenda evil movement commands
-;(define-key magit-status-mode-map "j" 'evil-next-line)
-;(define-key magit-status-mode-map "k" 'evil-previous-line)
+(define-key magit-status-mode-map (kbd "C-j") 'evil-next-line)
+(define-key magit-status-mode-map (kbd "C-k") 'evil-previous-line)
 
 ;; commenting
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
