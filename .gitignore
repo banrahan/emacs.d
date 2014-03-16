@@ -6,3 +6,7 @@ history
 bookmarks
 eshell/lastdir
 places
+/auto-save-list/
+/.mc-lists.el
+/.org-id-locations
+/site-elisp/Pymacs/
