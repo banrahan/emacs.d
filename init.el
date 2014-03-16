@@ -331,9 +331,7 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 (setq org-agenda-start-with-follow-mode t)
 
 ;; import todos
-(setq org-agenda-files (list "~/Dropbox/org/gtd.org"
-                             "~/Dropbox/org/work.org"
-                             "~/Dropbox/org/dissertation.org"))
+(setq org-agenda-files (list "~/Dropbox/org/projects.org"))
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
@@ -354,15 +352,15 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 
 ;; setup 0-9 priorities
 (setq org-default-priority 57)
+
 (setq org-highest-priority 48)
 (setq org-lowest-priority 57)
 
 ;; setup capture
-(setq org-default-notes-file "~/Dropbox/org/gtd.org")
-(define-key global-map "\C-cc" 'org-capture)
+(setq org-default-notes-file "~/Dropbox/org/projects.org")
 (setq org-capture-templates
-      '(("i" "Inbox" entry (file+headline "~/Dropbox/org/gtd.org" "Inbox")
-             "* TODO %?")))
+      '(("i" "Inbox" entry (file+headline "~/Dropbox/org/projects.org" "Inbox")
+             "* %?")))
 
 ; Targets include this file and any file contributing to the agenda - up to 9 levels deep
 (setq org-refile-targets (quote ((nil :maxlevel . 1)
@@ -461,6 +459,7 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 (evil-leader/set-key "=" 'evil-numbers/dec-at-pt)
 (evil-set-toggle-key "s-=") ; set the toggle key
 (define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up) ; restore control-u as up half a page
+
 ;; folding
 (define-key evil-normal-state-map "zo" 'banrahan-open-fold)
 (define-key evil-normal-state-map "zO" 'banrahan-open-folds)
@@ -490,6 +489,25 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 ;; org key bindings  
 (evil-leader/set-key "a" 'org-agenda)
 (evil-leader/set-key-for-mode 'org-mode "$" 'org-archive-subtree)
+(evil-define-key 'normal org-mode-map "o" '(lambda()
+                                            (interactive)
+                                            (evil-end-of-line)
+                                            (org-insert-heading-respect-content t)
+                                            (evil-end-of-line)
+                                            (evil-append 0)
+                                            )
+  )
+(evil-define-key 'normal org-mode-map "O" '(lambda()
+                                            (interactive)
+                                            (evil-beginning-of-line)
+                                            (org-insert-heading-respect-content t)
+                                            (evil-end-of-line)
+                                            (evil-append 0)
+                                            )
+  )
+(evil-define-key 'normal org-mode-map "t" 'org-todo)
+(evil-leader/set-key "c" '(lambda () (interactive) (org-capture nil "i")))
+(evil-leader/set-key-for-mode 'org-mode "n" 'org-add-note)
 
 ;; helm
 (evil-leader/set-key "f" 'helm-for-files)
@@ -503,6 +521,7 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 (global-set-key (kbd "s-t") 'helm-cmd-t)
 (global-set-key (kbd "s-r") 'helm-imenu)
 (global-set-key (kbd "s-y") 'helm-yas-complete)
+(global-set-key "\M-x" 'helm-M-x)
 
 ;; django project
 (global-set-key (kbd "C-c C-o") 'python-django-open-project)
@@ -532,9 +551,7 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
  '(custom-safe-themes
    (quote
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
- '(org-agenda-files
-   (quote
-    ("/Users/bhanraha/Dropbox/org/dissertation.org" "/Users/bhanraha/Dropbox/org/gtd.org" "/Users/bhanraha/Dropbox/org/inbox.org" "/Users/bhanraha/Dropbox/org/index.org" "/Users/bhanraha/Dropbox/org/work.org")))
+ '(org-agenda-files nil)
  '(org-deadline-warning-days 0)
  '(safe-local-variable-values
    (quote
