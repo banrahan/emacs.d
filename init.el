@@ -63,6 +63,7 @@
 (require 'helm-c-yasnippet)
 (require 'dired)
 (require 'popwin)
+(require 'erc)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Evil
@@ -273,6 +274,29 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
   (delete-single-window))
 
 ;;;;;;;;;;;;;;;;;;;;;;
+;;;; ERC
+;;;;;;;;;;;;;;;;;;;;;;
+
+(erc-autojoin-mode t)
+(setq erc-autojoin-channels-alist
+      '((".*\\.freenode.net" "#emacs" "#python" "#django" "#git")))
+
+(erc-track-mode t)
+(setq erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
+
+                                 "324" "329" "332" "333" "353" "477"))
+;; don't show any of this
+(setq erc-hide-list '("JOIN" "PART" "QUIT" "NICK"))
+
+(defun banrahan-erc-start-or-switch ()
+  "Connect to ERC, or switch to last active buffer."
+  (interactive)
+  (if (get-buffer "irc.freenode.net:6667") ;; ERC already active?
+    (erc-track-switch-buffer 1) ;; yes: switch to last active
+    (when (y-or-n-p "Start ERC? ") ;; no: maybe start ERC
+      (erc :server "irc.freenode.net" :port 6667 :nick "banrahan"))))
+
+;;;;;;;;;;;;;;;;;;;;;;
 ;;;; python
 ;;;;;;;;;;;;;;;;;;;;;;
 
@@ -316,7 +340,6 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 
 ; turn on search for master
 (setq-default TeX-master nil) ; Query for master file.
-
 
 ; turn on reftex
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
@@ -561,6 +584,9 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 ;; django project
 (global-set-key (kbd "C-c C-o") 'python-django-open-project)
 
+;; latex 
+(evil-define-key 'normal LaTeX-mode-map "[" 'reftex-citation)
+
 ;; bind c-tab to autocomplete
 (global-set-key (kbd "C-<tab>") 'auto-complete)
 
@@ -586,8 +612,8 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
  '(custom-enabled-themes (quote (solarized-light)))
  '(custom-safe-themes
    (quote
-    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(ido-everywhere t)
+ '(org-deadline-warning-days 0)
  '(safe-local-variable-values
    (quote
     ((pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/ipython" :settings "settings")
@@ -614,13 +640,13 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
      (pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/python")
      (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/bin/python")
      (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/env/bin/python"))))
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:height 220 :foundry "apple" :family "Inconsolata")))))
+ '(default ((t (:height 200 :foundry "apple" :family "Inconsolata")))))
 
 ;;; init.el ends here
