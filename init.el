@@ -62,6 +62,7 @@
 (require 'helm-cmd-t)
 (require 'helm-c-yasnippet)
 (require 'dired)
+(require 'popwin)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Evil
@@ -81,6 +82,12 @@
 ;; Turn off that blasted blinking cursor
 (blink-cursor-mode 0)
 
+;; no more bells
+(setq ring-bell-function 'ignore)
+
+;; disable scroll bar
+(scroll-bar-mode 0)
+
 ;; disable toolbar
 (tool-bar-mode 0)
 
@@ -97,6 +104,13 @@
     )
   )
 
+;;;;;;;;;;;;;;;;;;;;;;
+;;;; popwin
+;;;;;;;;;;;;;;;;;;;;;;
+(popwin-mode 1)
+
+(setq display-buffer-function 'popwin:display-buffer)
+ (push '("^\*helm.+\*$" :regexp t :height 10) popwin:special-display-config)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; General settings
@@ -327,11 +341,16 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 ;; don't truncate lines
 (setq org-startup-truncated nil)
 
-;; turn on follow mode
-(setq org-agenda-start-with-follow-mode t)
+;; warnings-days
+(setq org-deadline-warning-days 0)
+
 
 ;; import todos
-(setq org-agenda-files (list "~/Dropbox/org/projects.org"))
+(setq org-agenda-files (list "~/Dropbox/org/dissertation.org"
+                             "~/Dropbox/org/gtd.org"
+                             "~/Dropbox/org/projects.org"
+                             "~/Dropbox/org/work.org"
+                             ))
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
@@ -340,14 +359,13 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 
 ;; custom view for what is due today
 (setq org-agenda-custom-commands
-      '(("I" "Immediate"
-         ((agenda "" ((org-agenda-ndays 1))) ;; limits the agenda display to a single day
-         )
-        (
-          (org-agenda-compact-blocks t) ;; options set here apply to the entire block
-          (org-deadline-warning-days 0)
-        )
-       ))
+      '(("i" "Immediate"
+         ((agenda "" ((org-agenda-ndays 1)))) ;; limits the agenda display to a single day
+         ((org-agenda-compact-blocks t) ;; options set here apply to the entire block
+          (org-deadline-warning-days 0)))
+        ("n" todo "NEXT"
+         ((org-deadline-warning-days 0)))
+       )
 )
 
 ;; setup 0-9 priorities
@@ -357,14 +375,30 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 (setq org-lowest-priority 57)
 
 ;; setup capture
-(setq org-default-notes-file "~/Dropbox/org/projects.org")
+(setq org-default-notes-file "~/Dropbox/org/gtd.org")
 (setq org-capture-templates
-      '(("i" "Inbox" entry (file+headline "~/Dropbox/org/projects.org" "Inbox")
+      '(("i" "Inbox" entry (file+headline "~/Dropbox/org/gtd.org" "Inbox")
              "* %?")))
 
 ; Targets include this file and any file contributing to the agenda - up to 9 levels deep
 (setq org-refile-targets (quote ((nil :maxlevel . 1)
                                  (org-agenda-files :maxlevel . 1))))
+
+;; todo customization
+(setq org-todo-keywords
+      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
+              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING" "EMAIL"))))
+
+(setq org-todo-keyword-faces
+      (quote (("TODO" :foreground "red" :weight bold)
+              ("NEXT" :foreground "blue" :weight bold)
+              ("DONE" :foreground "forest green" :weight bold)
+              ("WAITING" :foreground "orange" :weight bold)
+              ("HOLD" :foreground "magenta" :weight bold)
+              ("CANCELLED" :foreground "forest green" :weight bold)
+              ("MEETING" :foreground "forest green" :weight bold)
+              ("EMAIL" :foreground "forest green" :weight bold)
+              ("PHONE" :foreground "forest green" :weight bold))))
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Markdown
@@ -469,6 +503,9 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 ;; org agenda evil movement commands
 (define-key org-agenda-mode-map "j" 'evil-next-line)
 (define-key org-agenda-mode-map "k" 'evil-previous-line)
+;; org evil movement commands
+(evil-define-key 'normal org-mode-map "k" 'previous-line) ; for some reason evil-previous-line moves up two in column view
+(evil-define-key 'normal org-mode-map "j" 'next-line) ; for some reason evil-next-line moves down and switches columns in column view
 ;; magit evil movement commands
 (define-key magit-status-mode-map (kbd "C-j") 'evil-next-line)
 (define-key magit-status-mode-map (kbd "C-k") 'evil-previous-line)
@@ -510,17 +547,15 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 (evil-leader/set-key-for-mode 'org-mode "n" 'org-add-note)
 
 ;; helm
-(evil-leader/set-key "f" 'helm-for-files)
-(evil-leader/set-key "d" 'helm-find-files)
-(evil-leader/set-key "t" 'helm-cmd-t)
-(evil-leader/set-key "r" 'helm-imenu)
-(evil-leader/set-key "x" 'helm-M-x)
 (evil-leader/set-key "p" 'banrahan-init-imenu)
 (evil-leader/set-key "o" 'banrahan-org-imenu)
 
 (global-set-key (kbd "s-t") 'helm-cmd-t)
+(global-set-key (kbd "s-e") 'helm-for-files)
+(global-set-key (kbd "s-d") 'helm-find-files)
 (global-set-key (kbd "s-r") 'helm-imenu)
 (global-set-key (kbd "s-y") 'helm-yas-complete)
+(global-set-key (kbd "s-P") 'helm-M-x)
 (global-set-key "\M-x" 'helm-M-x)
 
 ;; django project
@@ -547,12 +582,12 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(blink-cursor-mode nil)
  '(custom-enabled-themes (quote (solarized-light)))
  '(custom-safe-themes
    (quote
     ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
- '(org-agenda-files nil)
- '(org-deadline-warning-days 0)
+ '(ido-everywhere t)
  '(safe-local-variable-values
    (quote
     ((pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/ipython" :settings "settings")
@@ -586,6 +621,6 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:height 180 :foundry "apple" :family "Monaco")))))
+ '(default ((t (:height 220 :foundry "apple" :family "Inconsolata")))))
 
 ;;; init.el ends here
