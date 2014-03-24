@@ -64,14 +64,17 @@
 (require 'dired)
 (require 'popwin)
 (require 'erc)
+(require 'elscreen)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Evil
 ;;;;;;;;;;;;;;;;;;;;;;
 
 (evil-mode 1)
+(setq evil-search 'evil-search)
+(setq evil-magic 'very-magic)
 
-(global-evil-leader-mode)
+(global-evil-leader-mode t)
 (evil-leader/set-leader "<SPC>")
 
 (global-surround-mode 1)
@@ -80,8 +83,21 @@
 ;;;; Look and Feel 
 ;;;;;;;;;;;;;;;;;;;;;;
 
+;; font
+(set-face-attribute 'default nil
+                    :height 200
+                    :foundry "apple"
+                    :family "Monaco")
+
+(set-face-attribute 'elscreen-tab-background-face nil
+                    :background "#073642"
+                    :foreground "#93A1A1"
+                    )
 ;; Turn off that blasted blinking cursor
 (blink-cursor-mode 0)
+
+(show-paren-mode t)
+(display-time-mode t)
 
 ;; no more bells
 (setq ring-bell-function 'ignore)
@@ -105,13 +121,33 @@
     )
   )
 
+;; tabs
+(elscreen-start)
+(setq elscreen-tab-display-control nil)
+(setq elscreen-tab-display-kill-screen nil)
+
+(set-face-attribute 'elscreen-tab-background-face nil
+                    :background "#073642"
+                    :foreground "#93A1A1"
+                    )
+(set-face-attribute 'elscreen-tab-current-screen-face nil
+                    :background "#93A1A1"
+                    :foreground "#073642"
+                    )
+(set-face-attribute 'elscreen-tab-other-screen-face nil
+                    :background "#073642"
+                    :foreground "#93A1A1"
+                    )
+
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; popwin
 ;;;;;;;;;;;;;;;;;;;;;;
 (popwin-mode 1)
 
 (setq display-buffer-function 'popwin:display-buffer)
- (push '("^\*helm.+\*$" :regexp t :height 10) popwin:special-display-config)
+(push '("^\*helm.+\*$" :regexp t :height 20) popwin:special-display-config)
+(push '("^\.+\*Agenda.+\*$" :regexp t :height 20) popwin:special-display-config)
+(push '("^\*\*.+\*Org todo.+\*$" :regexp t :height 7) popwin:special-display-config)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; General settings
@@ -600,6 +636,14 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 ;; magit
 (evil-leader/set-key "m" 'magit-status)
 
+;; elscreen
+(define-key evil-normal-state-map "gt" 'elscreen-next)
+(define-key evil-normal-state-map "gT" 'elscreen-previous)
+(define-key evil-normal-state-map "gc" 'elscreen-clone)
+(define-key evil-normal-state-map "gk" 'elscreen-kill)
+(global-set-key (kbd "s-}") 'elscreen-next)
+(global-set-key (kbd "s-{") 'elscreen-previous)
+
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Emacs Auto Config
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -608,45 +652,36 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(blink-cursor-mode nil)
- '(custom-enabled-themes (quote (solarized-light)))
  '(custom-safe-themes
    (quote
- '(ido-everywhere t)
- '(org-deadline-warning-days 0)
- '(safe-local-variable-values
-   (quote
-    ((pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/ipython" :settings "settings")
-     (python-mode
-      (python-shell-interpreter . "python")
-      (python-shell-interpreter-args . "/Users/bhanraha/working/crowd_plugins/crowd_server/manage.py shell")
-      (python-shell-prompt-regexp . "In \\[[0-9]+\\]: ")
-      (python-shell-prompt-output-regexp . "Out\\[[0-9]+\\]: ")
-      (python-shell-completion-setup-code . "from IPython.core.completerlib import module_completion")
-      (python-shell-completion-module-string-code . "';'.join(module_completion('''%s'''))
+    (quote
+     (safe-local-variable-values
+      (quote
+       ((pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/ipython" :settings "settings")
+        (python-mode
+         (python-shell-interpreter . "python")
+         (python-shell-interpreter-args . "/Users/bhanraha/working/crowd_plugins/crowd_server/manage.py shell")
+         (python-shell-prompt-regexp . "In \\[[0-9]+\\]: ")
+         (python-shell-prompt-output-regexp . "Out\\[[0-9]+\\]: ")
+         (python-shell-completion-setup-code . "from IPython.core.completerlib import module_completion")
+         (python-shell-completion-module-string-code . "';'.join(module_completion('''%s'''))
 ")
-      (python-shell-completion-string-code . "';'.join(get_ipython().Completer.all_completions('''%s'''))
+         (python-shell-completion-string-code . "';'.join(get_ipython().Completer.all_completions('''%s'''))
 ")
-      (python-shell-virtualenv-path . "/Users/bhanraha/working/env/crowd_server"))
-     (python-shell-completion-string-code . "';'.join(get_ipython().Completer.all_completions('''%s'''))
+         (python-shell-virtualenv-path . "/Users/bhanraha/working/env/crowd_server"))
+        (python-shell-completion-string-code . "';'.join(get_ipython().Completer.all_completions('''%s'''))
 ")
-     (python-shell-completion-module-string-code . "';'.join(module_completion('''%s'''))
+        (python-shell-completion-module-string-code . "';'.join(module_completion('''%s'''))
 ")
-     (python-shell-completion-setup-code . "from IPython.core.completerlib import module_completion")
-     (python-shell-interpreter-args . "/Users/bhanraha/working/crowd_plugins/crowd_server/manage.py shell")
-     (python-shell-interpreter . "python")
-     (pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/python" :settings "settings" :pony-sqlite-program "/usr/bin/sqlite3")
-     (pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/python" :settings "settings")
-     (pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/python")
-     (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/bin/python")
-     (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/env/bin/python"))))
- '(tool-bar-mode nil))))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:height 200 :foundry "apple" :family "Inconsolata")))))
+        (python-shell-completion-setup-code . "from IPython.core.completerlib import module_completion")
+        (python-shell-interpreter-args . "/Users/bhanraha/working/crowd_plugins/crowd_server/manage.py shell")
+        (python-shell-interpreter . "python")
+        (pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/python" :settings "settings" :pony-sqlite-program "/usr/bin/sqlite3")
+        (pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/python" :settings "settings")
+        (pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/python")
+        (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/bin/python")
+        (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/env/bin/python")))))
+    ))
+)
 
 ;;; init.el ends here

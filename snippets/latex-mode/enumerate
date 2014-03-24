@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: enumerate
+# key: enum
+# --
+\begin{enumerate}
+$0
+\end{enumerate}
