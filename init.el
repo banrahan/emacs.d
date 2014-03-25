@@ -65,6 +65,8 @@
 (require 'popwin)
 (require 'erc)
 (require 'elscreen)
+(require 'projectile)
+(require 'helm-projectile)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Evil
@@ -324,14 +326,6 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 ;; don't show any of this
 (setq erc-hide-list '("JOIN" "PART" "QUIT" "NICK"))
 
-(defun banrahan-erc-start-or-switch ()
-  "Connect to ERC, or switch to last active buffer."
-  (interactive)
-  (if (get-buffer "irc.freenode.net:6667") ;; ERC already active?
-    (erc-track-switch-buffer 1) ;; yes: switch to last active
-    (when (y-or-n-p "Start ERC? ") ;; no: maybe start ERC
-      (erc :server "irc.freenode.net" :port 6667 :nick "banrahan"))))
-
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; python
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -542,6 +536,19 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
   (widen)
   (helm-org-headlines))
 
+;; change the order of projectile stuff to have recents and buffers first
+(defun helm-projectile ()
+  "Use projectile with Helm instead of ido."
+  (interactive)
+  (let ((helm-ff-transformer-show-only-basename nil))
+    (helm :sources '(helm-source-projectile-recentf-list
+                     helm-source-projectile-buffers-list
+                     helm-source-projectile-files-list
+                     )
+          :buffer "*helm projectile*"
+          :prompt (projectile-prepend-project-name "pattern: "))))
+
+
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Key Bindings
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -602,14 +609,14 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
                                             )
   )
 (evil-define-key 'normal org-mode-map "t" 'org-todo)
-(evil-leader/set-key "c" '(lambda () (interactive) (org-capture nil "i")))
+(global-set-key (kbd "s-5") '(lambda () (interactive) (org-capture nil "i")))
 (evil-leader/set-key-for-mode 'org-mode "n" 'org-add-note)
 
 ;; helm
-(evil-leader/set-key "p" 'banrahan-init-imenu)
-(evil-leader/set-key "o" 'banrahan-org-imenu)
+;(evil-leader/set-key "p" 'banrahan-init-imenu)
+;(evil-leader/set-key "o" 'banrahan-org-imenu)
 
-(global-set-key (kbd "s-t") 'helm-cmd-t)
+(global-set-key (kbd "s-t") 'helm-projectile)
 (global-set-key (kbd "s-e") 'helm-for-files)
 (global-set-key (kbd "s-d") 'helm-find-files)
 (global-set-key (kbd "s-r") 'helm-imenu)
@@ -643,6 +650,7 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 (define-key evil-normal-state-map "gk" 'elscreen-kill)
 (global-set-key (kbd "s-}") 'elscreen-next)
 (global-set-key (kbd "s-{") 'elscreen-previous)
+(global-set-key (kbd "s-T") 'elscreen-clone)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Emacs Auto Config
@@ -680,8 +688,13 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
         (pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/python" :settings "settings")
         (pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/python")
         (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/bin/python")
-        (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/env/bin/python")))))
-    ))
-)
+        (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/env/bin/python")))))))
+ )
 
 ;;; init.el ends here
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
