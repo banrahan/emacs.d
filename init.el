@@ -68,6 +68,7 @@
 (require 'projectile)
 (require 'helm-projectile)
 (require 'powerline)
+(require 'jabber)
 
 (require 'diminish)
 (eval-after-load "yasnippet" '(diminish 'yas-minor-mode " Y"))
@@ -657,8 +658,11 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 (global-set-key "\M-p"  (lambda () (interactive) (scroll-down 16)) )
 
 ;; org key bindings  
-(evil-leader/set-key "a" 'org-agenda)
+(global-set-key (kbd "s-4") 'org-agenda)
+(global-set-key (kbd "s-5") '(lambda () (interactive) (org-capture nil "i")))
+(evil-define-key 'normal org-mode-map "t" 'org-todo)
 (evil-leader/set-key-for-mode 'org-mode "$" 'org-archive-subtree)
+(evil-leader/set-key-for-mode 'org-mode "n" 'org-add-note)
 (evil-define-key 'normal org-mode-map "o" '(lambda()
                                             (interactive)
                                             (evil-end-of-line)
@@ -675,14 +679,8 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
                                             (evil-append 0)
                                             )
   )
-(evil-define-key 'normal org-mode-map "t" 'org-todo)
-(global-set-key (kbd "s-5") '(lambda () (interactive) (org-capture nil "i")))
-(evil-leader/set-key-for-mode 'org-mode "n" 'org-add-note)
 
 ;; helm
-;(evil-leader/set-key "p" 'banrahan-init-imenu)
-;(evil-leader/set-key "o" 'banrahan-org-imenu)
-
 (global-set-key (kbd "s-t") 'helm-projectile)
 (global-set-key (kbd "s-e") 'helm-for-files)
 (global-set-key (kbd "s-d") 'helm-find-files)
@@ -718,6 +716,17 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 (global-set-key (kbd "s-}") 'elscreen-next)
 (global-set-key (kbd "s-{") 'elscreen-previous)
 (global-set-key (kbd "s-T") 'elscreen-clone)
+
+;;;;;;;;;;;;;;;;;;;;;;
+;;;; jabber 
+;;;;;;;;;;;;;;;;;;;;;;
+
+(setq jabber-account-list
+  '(("hanrahan.ben@gmail.com" 
+     (:network-server . "talk.google.com")
+     (:connection-type . ssl))))
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Emacs Auto Config
