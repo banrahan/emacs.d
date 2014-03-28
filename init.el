@@ -722,6 +722,8 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 ;;;; jabber 
 ;;;;;;;;;;;;;;;;;;;;;;
 
+(setq jabber-alert-presence-message-function (lambda (who oldstatus newstatus statustext) nil))
+
 (setq jabber-account-list
   '(("hanrahan.ben@gmail.com" 
      (:network-server . "talk.google.com")
