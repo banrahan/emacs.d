@@ -653,6 +653,7 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 (global-set-key (kbd "s-}") 'elscreen-next)
 (global-set-key (kbd "s-{") 'elscreen-previous)
 (global-set-key (kbd "s-T") 'elscreen-clone)
+(global-set-key (kbd "s-w") 'elscreen-kill)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; jabber 
