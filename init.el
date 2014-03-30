@@ -2,212 +2,21 @@
 ;;
 ;;; Commentary:
 ;;
-;; Each thing is divided up into sections, use helm-imenu to list them
-;;   helm-imenu is bound to <s-r> in this buffer
+;; Each thing is put in an rc-like load file, the sort order is the boot
+;;   order.
+;; helm-imenu is bound to <s-r> in this buffer and grabs anything
+;;   with ;;;; at the start of the line
 ;;
-
 ;;; Code:
 
-;;;;;;;;;;;;;;;;;;;;;;
-;;;; PATHs
-;;;;;;;;;;;;;;;;;;;;;;
+(add-to-list 'load-path "~/.emacs.d/elisp/")
 
-(setenv "PATH"
-   (getenv "PATH")
-)
-
-(add-to-list 'load-path "~/.emacs.d")
-(add-to-list 'load-path "~/.emacs.d/site-elisp")
-(add-to-list 'load-path "~/.emacs.d/site-elisp/pony-mode/src")
-(progn (cd "~/.emacs.d/site-elisp")
-       (normal-top-level-add-subdirs-to-load-path))
-
-;;;;;;;;;;;;;;;;;;;;;;
-;;;; elpa 
-;;;;;;;;;;;;;;;;;;;;;;
-
-(require 'package)
-(add-to-list 'package-archives
-  '("melpa" . "http://melpa.milkbox.net/packages/") t)
-
-(package-initialize)
-
-;;;;;;;;;;;;;;;;;;;;;;
-;;;; Requires
-;;;;;;;;;;;;;;;;;;;;;;
-
-(require 'ess-site)
-(require 'evil)
-(require 'evil-leader)
-(require 'surround)
-(require 'evil-numbers)
-(require 'org-agenda)
-(require 'auto-complete)
-(require 'auto-complete-config)
-(require 'autopair)
-(require 'magit)
-(require 'pymacs)
-(require 'django-html-mode)
-(require 'django-mode)
-(require 'pony-mode)
-(require 'python-django)
-(require 'tex-site)
-(require 'reftex)
-(require 'emmet-mode)
-(require 'org)
-(require 'yasnippet)
-(require 'helm-config)
-(require 'helm-files)
-(require 'helm-match-plugin)
-(require 'helm-cmd-t)
-(require 'helm-c-yasnippet)
-(require 'dired)
-(require 'popwin)
-(require 'erc)
-(require 'elscreen)
-(require 'projectile)
-(require 'helm-projectile)
-(require 'powerline)
-(require 'jabber)
-
-(require 'diminish)
-(eval-after-load "yasnippet" '(diminish 'yas-minor-mode " Y"))
-(eval-after-load "Undo-Tree" '(diminish 'undo-tree-mode))
-(eval-after-load "abbrev" '(diminish 'abbrev-mode "Ab"))
-(eval-after-load "autopair" '(diminish 'autopair-mode))
-(eval-after-load "magit" '(diminish 'magit-auto-revert-mode))
-
-
-;;;;;;;;;;;;;;;;;;;;;;
-;;;; Evil
-;;;;;;;;;;;;;;;;;;;;;;
-
-(evil-mode 1)
-(setq evil-search 'evil-search)
-(setq evil-magic 'very-magic)
-
-(global-evil-leader-mode t)
-(evil-leader/set-leader "<SPC>")
-
-(global-surround-mode 1)
-
-;;;;;;;;;;;;;;;;;;;;;;
-;;;; Look and Feel 
-;;;;;;;;;;;;;;;;;;;;;;
-
-;; font
-(set-face-attribute 'default nil
-                    :height 200
-                    :foundry "apple"
-                    :family "Monaco")
-
-(set-face-attribute 'elscreen-tab-background-face nil
-                    :background "#073642"
-                    :foreground "#93A1A1"
-                    )
-;; Turn off that blasted blinking cursor
-(blink-cursor-mode 0)
-
-(show-paren-mode t)
-(display-time-mode t)
-
-;; no more bells
-(setq ring-bell-function 'ignore)
-
-;; disable scroll bar
-(scroll-bar-mode 0)
-
-;; disable toolbar
-(tool-bar-mode 0)
-
-;; solarized
-(load-theme 'solarized-light t)
-
-;; toggle dark and light
-(setq dark-light 'light)
-(defun banrahan-toggle-solarized ()
-  (interactive)
-  (if (eq dark-light 'light)
-      (progn (setq dark-light 'dark) (load-theme 'solarized-dark t))
-    (progn (setq dark-light 'light) (load-theme 'solarized-light t))
-    )
-  )
-
-
-;; tabs
-(elscreen-start)
-(setq elscreen-tab-display-control nil)
-(setq elscreen-tab-display-kill-screen nil)
-
-(set-face-attribute 'elscreen-tab-background-face nil
-                    :background "#073642"
-                    :foreground "#93A1A1"
-                    )
-(set-face-attribute 'elscreen-tab-current-screen-face nil
-                    :background "#93A1A1"
-                    :foreground "#073642"
-                    )
-(set-face-attribute 'elscreen-tab-other-screen-face nil
-                    :background "#073642"
-                    :foreground "#93A1A1"
-                    )
-
-;;;;;;;;;;;;;;;;;;;;;;
-;;;; powerline
-;;;;;;;;;;;;;;;;;;;;;;
-(defun powerline-banrahan-theme ()
-  "Setup a banrahan mode-line."
-  (interactive)
-  (setq-default mode-line-format
-                '("%e"
-                  (:eval
-                   (let* ((active (powerline-selected-window-active))
-                          (mode-line (if active 'mode-line 'mode-line-inactive))
-                          (face1 (if active 'powerline-active1 'powerline-inactive1))
-                          (face2 (if active 'powerline-active2 'powerline-inactive2))
-                          (separator-left (intern (format "powerline-%s-%s"
-                                                          powerline-default-separator
-                                                          (car powerline-default-separator-dir))))
-                          (separator-right (intern (format "powerline-%s-%s"
-                                                           powerline-default-separator
-                                                           (cdr powerline-default-separator-dir))))
-                          (lhs (list
-
-                                     (powerline-raw evil-mode-line-tag mode-line 'l)
-                                     (powerline-buffer-id `(mode-line-buffer-id ,mode-line) 'l)
-                                     (powerline-raw "[" mode-line 'l)
-                                     (powerline-major-mode mode-line)
-                                     (powerline-process mode-line)
-                                     (powerline-raw "]" mode-line)
-                                     (when (buffer-modified-p)
-                                       (powerline-raw "[+]" mode-line))
-                                     (when buffer-read-only
-                                       (powerline-raw "[RO]" mode-line))
-                                     (powerline-raw "[%z]" mode-line)
-                                     ;; (powerline-raw (concat "[" (mode-line-eol-desc) "]") mode-line)
-                                     (when (and (boundp 'which-func-mode) which-func-mode)
-                                       (powerline-raw which-func-format nil 'l))
-                                     (when (boundp 'erc-modified-channels-object)
-                                       (powerline-raw erc-modified-channels-object face1 'l))
-                                     (powerline-raw "[" mode-line 'l)
-                                     (powerline-minor-modes mode-line)
-                                     (powerline-raw "%n" mode-line)
-                                     (powerline-raw "]" mode-line)
-                                     (when (and vc-mode buffer-file-name)
-                                       (let ((backend (vc-backend buffer-file-name)))
-                                         (when backend
-                                           (concat (powerline-raw "[" mode-line 'l)
-                                                   (powerline-raw (format "%s / %s" backend (vc-working-revision buffer-file-name backend)))
-                                                   (powerline-raw "]" mode-line)))))))
-                          (rhs (list (powerline-raw '(10 "%i"))
-                                     (powerline-raw global-mode-string mode-line 'r)
-                                     (powerline-raw "%l," mode-line 'l)
-                                     (powerline-raw (format-mode-line '(10 "%c")))
-                                     (powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))) mode-line 'r))))
-                     (concat (powerline-render lhs)
-                             (powerline-fill mode-line (powerline-width rhs))
-                             (powerline-render rhs)))))))
-(powerline-banrahan-theme)
+(require '000_paths)
+(require '001_packages)
+(require '002_banrahan)
+(require '003_evil)
+(require '100_look_and_feel)
+(require '101_powerline)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; popwin
@@ -216,7 +25,6 @@
 
 (setq display-buffer-function 'popwin:display-buffer)
 (push '("^\*helm.+\*$" :regexp t :height 20) popwin:special-display-config)
-(push '("^\.+\*Agenda.+\*$" :regexp t :height 20) popwin:special-display-config)
 (push '("^\*\*.+\*Org todo.+\*$" :regexp t :height 7) popwin:special-display-config)
 
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -242,7 +50,7 @@
   (winner-mode 1))
 
 ;; Dired
-(add-hook 'dired-load-hook (function (lambda () (load "dired-x"))))
+;(add-hook 'dired-load-hook (function (lambda () (load "dired-x"))))
 
 ;; setting fuzzy matching for interactive-do mode
 (ido-mode t)
@@ -250,6 +58,9 @@
 
 ;; enable autopair in all buffers
 (autopair-global-mode) 
+
+;; set magit executable
+(setq magit-git-executable '"/usr/local/bin/git")
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Folding
@@ -399,6 +210,7 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 ;;;;;;;;;;;;;;;;;;;;;;
 
 ;; pymacs stuff
+(setq pymacs-python-command "/usr/local/bin/python")
 (autoload 'pymacs-apply "pymacs")
 (autoload 'pymacs-call "pymacs")
 (autoload 'pymacs-eval "pymacs" nil t)
@@ -718,11 +530,70 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 (global-set-key (kbd "s-T") 'elscreen-clone)
 (global-set-key (kbd "s-w") 'elscreen-kill)
 
+;;;;;;;;;;;;;;
+;;;; email
+;;;;;;;;;;;;;;
+
+(global-set-key (kbd "s-i") (lambda () (interactive) (mu4e~headers-jump-to-maildir '"/gmail/INBOX")))
+(evil-define-key 'normal mu4e-headers-mode-map "J" 'mu4e~headers-jump-to-maildir)
+(evil-define-key 'normal mu4e-headers-mode-map (kbd "RET") 'mu4e-headers-view-message)
+(evil-define-key 'normal mu4e-headers-mode-map "d" 'mu4e-headers-mark-for-trash)
+(evil-define-key 'normal mu4e-headers-mode-map "r" 'mu4e-headers-mark-for-refile)
+(evil-define-key 'normal mu4e-headers-mode-map "u" 'mu4e-headers-mark-for-unmark)
+(evil-define-key 'normal mu4e-headers-mode-map "U" 'mu4e-mark-unmark-all)
+(evil-define-key 'normal mu4e-headers-mode-map "R" 'mu4e-compose-reply)
+(evil-define-key 'normal mu4e-headers-mode-map "C" 'mu4e-compose-new)
+(evil-define-key 'normal mu4e-headers-mode-map "s" 'mu4e-headers-search)
+
+
+(evil-define-key 'normal mu4e-headers-mode-map "x" 'mu4e-mark-execute-all)
+(evil-define-key 'normal mu4e-headers-mode-map "I" (lambda () (interactive) (mu4e-update-mail-and-index t)))
+
+(evil-define-key 'normal mu4e-view-mode-map "q" 'mu4e~view-quit-buffer)
+
+
+(setq mu4e-mu-binary "/usr/local/bin/mu")
+(setq mu4e-maildir "~/.mail")
+(setq mu4e-drafts-folder "/gmail/[Gmail].Drafts")
+(setq mu4e-sent-folder   "/gmail/[Gmail].Sent Mail")
+(setq mu4e-trash-folder  "/gmail/[Gmail].Trash")
+(setq mu4e-refile-folder  "/gmail/[Gmail].All Mail")
+
+;; don't save message to Sent Messages, Gmail/IMAP takes care of this
+(setq mu4e-sent-messages-behavior 'delete)
+
+;; allow for updating mail using 'U' in the main view:
+;; TODO make a toggle function for this...or a get all function that sets it and resets it
+(setq mu4e-get-mail-command "offlineimap -o")
+;(setq mu4e-get-mail-command "offlineimap -f INBOX")
+
+(add-to-list 'mu4e-view-actions
+             '("ViewInBrowser" . mu4e-action-view-in-browser) t)
+
+
+(setq ssl-program-name "gnutls-cli"
+      ssl-program-arguments '("--port" service
+                              "--insecure"
+                              "--x509cafile" "/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt"
+                              host))
+
+(setq message-send-mail-function 'smtpmail-send-it
+      starttls-use-gnutls t
+      smtpmail-starttls-credentials
+      '(("smtp.gmail.com" 587 nil nil))
+      smtpmail-auth-credentials
+      '(("smtp.gmail.com" 587 nil nil))
+      smtpmail-default-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 587
+      smtpmail-debug-info t)
+
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; jabber 
 ;;;;;;;;;;;;;;;;;;;;;;
 
 (setq jabber-alert-presence-message-function (lambda (who oldstatus newstatus statustext) nil))
+(setq jabber-roster-line-format "%c %-25n %u %-8s  %S")
 
 (setq jabber-account-list
   '(("hanrahan.ben@gmail.com" 
@@ -770,4 +641,10 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
         (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/env/bin/python")))))))
  )
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 ;;; init.el ends here

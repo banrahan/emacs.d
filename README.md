@@ -1,1 +1,1 @@
-This configuration is being used with emacs24 right now.  I may add emacs23 support soon.
+This configuration is being used with emacs HEAD on os x.
