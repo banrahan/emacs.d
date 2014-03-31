@@ -32,5 +32,5 @@
 
 (global-surround-mode 1)
 
-(provide '003_evil.el)
+(provide '003_evil)
 ;;; 003_evil.el ends here
