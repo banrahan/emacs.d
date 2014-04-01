@@ -539,11 +539,17 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 (evil-define-key 'normal mu4e-headers-mode-map (kbd "RET") 'mu4e-headers-view-message)
 (evil-define-key 'normal mu4e-headers-mode-map "d" 'mu4e-headers-mark-for-trash)
 (evil-define-key 'normal mu4e-headers-mode-map "r" 'mu4e-headers-mark-for-refile)
+(evil-define-key 'normal mu4e-headers-mode-map "R" 'mu4e-compose-reply)
+(evil-define-key 'normal mu4e-headers-mode-map "F" 'mu4e-compose-forward)
+(evil-define-key 'normal mu4e-headers-mode-map "C" 'mu4e-compose-new)
+(evil-define-key 'normal mu4e-headers-mode-map "M" 'mu4e-headers-mark-pattern)
 (evil-define-key 'normal mu4e-headers-mode-map "u" 'mu4e-headers-mark-for-unmark)
 (evil-define-key 'normal mu4e-headers-mode-map "U" 'mu4e-mark-unmark-all)
-(evil-define-key 'normal mu4e-headers-mode-map "R" 'mu4e-compose-reply)
-(evil-define-key 'normal mu4e-headers-mode-map "C" 'mu4e-compose-new)
 (evil-define-key 'normal mu4e-headers-mode-map "s" 'mu4e-headers-search)
+(evil-define-key 'normal mu4e-headers-mode-map "b" 'mu4e-headers-search-bookmark)
+
+(evil-define-key 'normal mu4e-view-mode-map "R" 'mu4e-compose-reply)
+(evil-define-key 'normal mu4e-view-mode-map "F" 'mu4e-compose-forward)
 
 
 (evil-define-key 'normal mu4e-headers-mode-map "x" 'mu4e-mark-execute-all)
@@ -551,6 +557,10 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 
 (evil-define-key 'normal mu4e-view-mode-map "q" 'mu4e~view-quit-buffer)
 
+(add-hook 'mu4e-view-mode-hook 'turn-on-flyspell)
+
+(setq user-mail-address "hanrahan.ben@gmail.com")
+(setq user-full-name "Ben Hanrahan")
 
 (setq mu4e-mu-binary "/usr/local/bin/mu")
 (setq mu4e-maildir "~/.mail")
@@ -566,6 +576,8 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 ;; TODO make a toggle function for this...or a get all function that sets it and resets it
 (setq mu4e-get-mail-command "offlineimap -o")
 ;(setq mu4e-get-mail-command "offlineimap -f INBOX")
+; run on a timer
+(run-with-timer 0 (* 10 60) (lambda () (interactive) (mu4e-update-mail-and-index t)))
 
 (add-to-list 'mu4e-view-actions
              '("ViewInBrowser" . mu4e-action-view-in-browser) t)
@@ -587,6 +599,9 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
       smtpmail-smtp-server "smtp.gmail.com"
       smtpmail-smtp-service 587
       smtpmail-debug-info t)
+
+(setq message-kill-buffer-on-exit t)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; jabber 
