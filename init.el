@@ -18,6 +18,34 @@
 (require '100_look_and_feel)
 (require '101_powerline)
 
+
+;;;; sandbox
+
+(setq font-lock-maximum-decoration t)
+(defface font-lock-func-face 
+    '((nil (:foreground "#b58900" :weight bold))
+      (t (:bold t :italic t)))
+  "Font Lock mode face used for function calls."
+  :group 'font-lock-highlighting-faces)
+
+(font-lock-add-keywords
+ 'emacs-lisp-mode
+  '(
+    ("\\<\\(interactive\\)" . 'font-lock-keyword-face)
+    ("\\<\\(setq\\)" . 'font-lock-function-name-face)
+    ("\\<\\(push\\)" . 'font-lock-function-name-face)
+    ("\\<\\(put\\)" . 'font-lock-function-name-face)
+    ("\\<\\(load-library\\)" . 'font-lock-function-name-face)
+  )
+)
+
+
+;;;; dired
+(setq dired-omit-files
+                (concat dired-omit-files "\\|^\\..+$"))
+(setq dired-omit-mode t)
+
+
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; popwin
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -577,11 +605,12 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 (setq mu4e-get-mail-command "offlineimap -o")
 ;(setq mu4e-get-mail-command "offlineimap -f INBOX")
 ; run on a timer
-(run-with-timer 0 (* 10 60) (lambda () (interactive) (mu4e-update-mail-and-index t)))
+;(run-with-timer 0 (* 10 60) (lambda () (interactive) (mu4e-update-mail-and-index t)))
 
 (add-to-list 'mu4e-view-actions
              '("ViewInBrowser" . mu4e-action-view-in-browser) t)
 
+(setq mu4e-html2text-command "w3m -dump -T text/html")
 
 (setq ssl-program-name "gnutls-cli"
       ssl-program-arguments '("--port" service

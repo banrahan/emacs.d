@@ -42,7 +42,7 @@
 (eval-after-load "magit" '(diminish 'magit-auto-revert-mode))
 
 ;;; Solarized theme
-(load-theme 'solarized-light t)
+(load-theme 'solarized-dark t)
 
 ;;; Tabs
 (require 'elscreen)
