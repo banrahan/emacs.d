@@ -8,7 +8,10 @@
   "d" 'magit-discard-item
   "i" 'magit-ignore-item
   "g" 'magit-refresh
-  (kbd "TAB") 'magit-cycle-section)
+  (kbd "TAB") 'magit-cycle-section
+  "c" 'magit-commit
+  "F" 'magit-pull
+  "P" 'magit-push)
 
 
 (evil-leader/set-key "m" 'magit-status)
