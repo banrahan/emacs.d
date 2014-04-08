@@ -1,4 +1,3 @@
-
 (require 'helm)
 
 (defvar helm-mu4e-source-buffer "*helm mu4e*")
@@ -30,7 +29,7 @@
      . (lambda () 
 	 (loop for s in mu4e-bookmarks
 	       collect (car s))))
-     (action . (("Jump to maildir" .
+     (action . (("Jump to bookmarks" .
                 (lambda (candidate)
                   (mu4e-headers-search candidate)))))))
   
