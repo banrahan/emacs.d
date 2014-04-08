@@ -39,6 +39,8 @@
 (require '301_latex)
 (require '302_python)
 
+(require '400_sandbox)
+
 ;;;; sandbox
 (setq font-lock-maximum-decoration t)
 (defface font-lock-func-face 
