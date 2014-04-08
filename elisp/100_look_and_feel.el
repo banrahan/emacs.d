@@ -41,10 +41,10 @@
 (eval-after-load "autopair" '(diminish 'autopair-mode))
 (eval-after-load "magit" '(diminish 'magit-auto-revert-mode))
 
-;;; Solarized theme
+;;;; Solarized theme
 (load-theme 'solarized-dark t)
 
-;;; Tabs
+;;;; Tabs
 (require 'elscreen)
 (elscreen-start)
 (setq elscreen-tab-display-control nil)
@@ -62,6 +62,30 @@
                     :background "#073642"
                     :foreground "#93A1A1"
                     )
+
+;;;; Dired
+(setq dired-omit-files
+                (concat dired-omit-files "\\|^\\..+$"))
+(setq dired-omit-mode t)
+(defun enable-dired-omit-mode () (dired-omit-mode 1))
+(add-hook 'dired-mode-hook 'enable-dired-omit-mode)
+
+;;;; popwin
+(popwin-mode 1)
+
+(setq display-buffer-function 'popwin:display-buffer)
+(push '("^\*helm.+\*$" :regexp t :height 20) popwin:special-display-config)
+(push '("^\*\*.+\*Org todo.+\*$" :regexp t :height 7) popwin:special-display-config)
+
+;;;;;;;;;;;;;;;;;;;;;;
+;;;; Key Bindings
+;;;;;;;;;;;;;;;;;;;;;;
+
+;; elscreen
+(global-set-key (kbd "s-}") 'elscreen-next)
+(global-set-key (kbd "s-{") 'elscreen-previous)
+(global-set-key (kbd "s-T") 'elscreen-clone)
+(global-set-key (kbd "s-w") 'elscreen-kill)
 
 (provide '100_look_and_feel)
 ;;; 100_look_and_feel.el ends here

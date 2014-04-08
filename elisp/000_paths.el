@@ -36,5 +36,4 @@
        (normal-top-level-add-subdirs-to-load-path))
 
 (provide '000_paths)
-
 ;;; 000_paths.el ends here

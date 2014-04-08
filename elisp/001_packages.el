@@ -6,15 +6,11 @@
 ;;
 ;;; Code:
 
-;;;; elpa
-
 (require 'package)
 (add-to-list 'package-archives
   '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 (package-initialize)
-
-;;;; Requires
 
 (require 'ess-site)
 (require 'evil)

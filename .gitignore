@@ -10,3 +10,5 @@ places
 /.mc-lists.el
 /.org-id-locations
 /site-elisp/Pymacs/
+/jabber-avatar-cache/
+/.python-environments/
