@@ -13,7 +13,6 @@
   "F" 'magit-pull
   "P" 'magit-push)
 
-
 (evil-leader/set-key "m" 'magit-status)
 
 (provide '207_magit)

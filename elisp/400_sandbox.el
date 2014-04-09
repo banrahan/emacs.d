@@ -13,10 +13,11 @@
                   (mu4e~headers-jump-to-maildir candidate)))))))
 
 ;;;###autoload
-(defun helm-mu4e-maildirs nil
+(defun helm-mu4e nil
   "Select from mu4e maildirs to jump to."
   (interactive)
-  (helm :sources 'helm-source-mu4e-maildirs
+  (helm :sources '(helm-source-mu4e-bookmarks
+		   helm-source-mu4e-maildirs)
         :buffer helm-mu4e-source-buffer))
 
 (defvar helm-mu4e-bookmarks-source-buffer "*helm mu4e bookmarks*")
@@ -28,7 +29,7 @@
     (candidates
      . (lambda () 
 	 (loop for s in mu4e-bookmarks
-	       collect (car s))))
+	       collect (nth 1 s))))
      (action . (("Jump to bookmarks" .
                 (lambda (candidate)
                   (mu4e-headers-search candidate)))))))

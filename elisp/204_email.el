@@ -16,6 +16,10 @@
       mu4e-trash-folder  "/gmail/[Gmail].Trash"
       mu4e-refile-folder  "/gmail/[Gmail].All Mail")
 
+;; can't get this to work quite right
+;(add-to-list 'mu4e-bookmarks
+;	     '("\"maildir:/gmail/INBOX\"" "Inbox" ?i))
+
 ;; don't save message to Sent Messages, Gmail/IMAP takes care of this
 (setq mu4e-sent-messages-behavior 'delete)
 
