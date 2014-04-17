@@ -34,10 +34,4 @@ If WINDOW is the only one in its frame, then `delete-frame' too."
 (defun eshell/x (&rest args)
   (delete-single-window))
 
-;;;;;;;;;;;;;;;;;;;;;;
-;;;; Key Bindings
-;;;;;;;;;;;;;;;;;;;;;;
-;; eshell
-(define-key evil-normal-state-map "!" 'eshell-here)
-
 (provide '201_eshell)
