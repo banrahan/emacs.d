@@ -44,13 +44,13 @@
 
 ;;;; sublimity
 
-(require 'sublimity)
-(require 'sublimity-scroll)
+;;(require 'sublimity)
+;;(require 'sublimity-scroll)
 ;;(require 'sublimity-map)
 ;;(require 'sublimity-attractive)
 
-(sublimity-mode 1)
-(setq sublimity-scroll-drift-length 1); sublimity-scroll-weight 4)
-(setq sublimity-attractive-centering-width nil)
+;;(sublimity-mode 1)
+;;(setq sublimity-scroll-drift-length 1); sublimity-scroll-weight 4)
+;;(setq sublimity-attractive-centering-width nil)
 ;(sublimity-map-set-delay 5)
 (provide '400_sandbox)
