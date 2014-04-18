@@ -32,6 +32,8 @@
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/site-elisp")
 (add-to-list 'load-path "~/.emacs.d/site-elisp/pony-mode/src")
+(add-to-list 'load-path "~/.emacs.d/site-elisp/org")
+(add-to-list 'load-path "~/.emacs.d/site-elisp/org/contrib/list" t)
 (progn (cd "~/.emacs.d/site-elisp")
        (normal-top-level-add-subdirs-to-load-path))
 

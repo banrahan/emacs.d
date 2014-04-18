@@ -65,6 +65,8 @@
               ("EMAIL" :foreground "forest green" :weight bold)
               ("PHONE" :foreground "forest green" :weight bold))))
 
+(require 'org-drill)
+(setq org-drill-overdue-interval-factor 1.1) 
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Key Bindings
