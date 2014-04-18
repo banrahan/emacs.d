@@ -42,6 +42,22 @@
 (eval-after-load "magit" '(diminish 'magit-auto-revert-mode))
 
 ;;;; Solarized theme
+;; make the modeline high contrast
+(setq solarized-high-contrast-mode-line t)
+
+;; Use more italics
+(setq solarized-use-more-italic t)
+
+(setq solarized-high-contrast-mode-line t)
+(set-face-attribute 'powerline-active1 nil
+                    :background "#93A1A1"
+                    :foreground "#073642"
+		    )
+(set-face-attribute 'powerline-active2 nil
+                    :background "#93A1A1"
+                    :foreground "#073642"
+		    )
+
 (load-theme 'solarized-dark t)
 
 ;;;; Tabs
