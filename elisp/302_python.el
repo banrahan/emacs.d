@@ -35,4 +35,9 @@
 ;; django project
 (global-set-key (kbd "C-c C-o") 'python-django-open-project)
 
+(defun django-nosetests-one (&optional debug)
+  "run django nosetests on testable thing at point in current buffer"
+  (interactive)
+  (compile (concat "python " (rope-get-project-root) "manage.py test " (format "%s:%s" buffer-file-name (nose-py-testable))) " -s"))
+
 (provide '302_python)
