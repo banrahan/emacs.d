@@ -41,6 +41,8 @@
   (helm :sources 'helm-source-mu4e-bookmarks
 	:buffer helm-mu4e-bookmarks-source-buffer))
 
+(require 'ox-taskjuggler)
+(setq org-taskjuggler-target-version 3.4)
 
 ;;;; sublimity
 
