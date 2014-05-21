@@ -42,4 +42,10 @@
   (message (concat "python " (rope-get-project-root) "manage.py test " (format "%s:%s" buffer-file-name (nose-py-testable)) " -s"))
   (compile (concat "python " (rope-get-project-root) "manage.py test " (format "%s:%s" buffer-file-name (nose-py-testable)) " -s")))
 
+(defun django-nosetests-all (&optional debug)
+  "run django nosetests on entire project"
+  (interactive)
+  (message (concat "python " (rope-get-project-root) "manage.py test -s"))
+  (compile (concat "python " (rope-get-project-root) "manage.py test -s")))
+
 (provide '302_python)
