@@ -1,4 +1,4 @@
-;;; 000_paths.el --- configure the paths for emacs
+;; 000_paths.el --- configure the paths for emacs
 ;;
 ;;; Commentary:
 ;;
