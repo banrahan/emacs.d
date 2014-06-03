@@ -11,7 +11,8 @@
   (kbd "TAB") 'magit-cycle-section
   "c" 'magit-commit
   "F" 'magit-pull
-  "P" 'magit-push)
+  "P" 'magit-push
+  "q" 'magit-mode-quit-window)
 
 (evil-leader/set-key "m" 'magit-status)
 

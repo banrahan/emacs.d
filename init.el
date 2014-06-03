@@ -97,6 +97,9 @@
 	(pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/python")
 	(pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/bin/python")
 	(pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/env/bin/python")))))))
+ '(org-agenda-files
+   (quote
+    ("~/Dropbox/org/dissertation.org" "~/Dropbox/org/gtd.org" "~/Dropbox/org/work.org")))
  '(org-drill-optimal-factor-matrix
    (quote
     ((1

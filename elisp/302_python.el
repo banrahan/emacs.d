@@ -48,4 +48,7 @@
   (message (concat "python " (rope-get-project-root) "manage.py test -s"))
   (compile (concat "python " (rope-get-project-root) "manage.py test -s")))
 
+(evil-define-key 'normal inferior-python-mode-map
+  (kbd "C-d") 'evil-scroll-down)
+
 (provide '302_python)
