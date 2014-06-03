@@ -5,11 +5,13 @@
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-
 ;;;; clojure
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-mode-hook (lambda () (paredit-mode 1)))
+(setq cider-repl-tab-command 'indent-for-tab-command)
+
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+
 
 ;;;; javascript
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
