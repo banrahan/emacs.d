@@ -11,9 +11,8 @@
 
 
 ;; import todos
-(setq org-agenda-files (list "~/Dropbox/org/dissertation.org"
+(setq org-agenda-files (list "~/Dropbox/org/diss.org"
                              "~/Dropbox/org/gtd.org"
-                             "~/Dropbox/org/projects.org"
                              "~/Dropbox/org/work.org"
                              ))
 
