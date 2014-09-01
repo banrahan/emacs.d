@@ -1,6 +1,7 @@
 ;;;;;;;;;;;;;;
 ;;;; email
 ;;;;;;;;;;;;;;
+(require 'mu4e)
 
 (add-hook 'mu4e-view-mode-hook 'turn-on-flyspell)
 
@@ -69,6 +70,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "s-i") (lambda () (interactive) (mu4e~headers-jump-to-maildir '"/gmail/INBOX")))
 (evil-define-key 'normal mu4e-headers-mode-map "g" (lambda () (interactive) (mu4e-update-mail-and-index t)))
+(evil-define-key 'normal mu4e-view-mode-map "g" (lambda () (interactive) (mu4e-update-mail-and-index t)))
 
 (evil-define-key 'normal mu4e-headers-mode-map
   "J" 'mu4e~headers-jump-to-maildir
@@ -83,6 +85,8 @@
   "U" 'mu4e-mark-unmark-all
   "s" 'mu4e-headers-search
   "x" 'mu4e-mark-execute-all
+  "+" 'mu4e-headers-mark-for-flag
+  "-" 'mu4e-headers-mark-for-unflag
   "b" 'mu4e-headers-search-bookmark)
 
 (evil-define-key 'normal mu4e-view-mode-map
@@ -97,8 +101,10 @@
   "n" 'mu4e-view-headers-next
   "p" 'mu4e-view-headers-prev
   "q" 'mu4e~view-quit-buffer
-  "x" 'mu4e-mark-execute-all
+  "x" 'mu4e-view-marked-execute
   "O" 'mu4e-view-open-attachment
+  "+" 'mu4e-view-mark-for-flag
+  "-" 'mu4e-view-mark-for-unflag
   "U" 'mu4e-view-go-to-url)
 
 (provide '204_email)

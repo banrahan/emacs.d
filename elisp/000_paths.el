@@ -1,4 +1,4 @@
-;;; 000_paths.el --- configure the paths for emacs
+;; 000_paths.el --- configure the paths for emacs
 ;;
 ;;; Commentary:
 ;;
@@ -55,8 +55,8 @@
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/site-elisp")
 (add-to-list 'load-path "~/.emacs.d/site-elisp/pony-mode/src")
-(add-to-list 'load-path "~/.emacs.d/site-elisp/org")
-(add-to-list 'load-path "~/.emacs.d/site-elisp/org/contrib/list" t)
+(add-to-list 'load-path "~/.emacs.d/site-elisp/org/lisp")
+(add-to-list 'load-path "~/.emacs.d/site-elisp/org/contrib/lisp" t)
 (progn (cd "~/.emacs.d/site-elisp")
        (normal-top-level-add-subdirs-to-load-path))
 

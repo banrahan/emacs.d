@@ -40,4 +40,20 @@
 ;; django project
 (global-set-key (kbd "C-c C-o") 'python-django-open-project)
 
+(require 'nose)
+(defun django-nosetests-one (&optional debug)
+  "run django nosetests on testable thing at point in current buffer"
+  (interactive)
+  (message (concat "python " (rope-get-project-root) "manage.py test " (format "%s:%s" buffer-file-name (nose-py-testable)) " -s"))
+  (compile (concat "python " (rope-get-project-root) "manage.py test " (format "%s:%s" buffer-file-name (nose-py-testable)) " -s")))
+
+(defun django-nosetests-all (&optional debug)
+  "run django nosetests on entire project"
+  (interactive)
+  (message (concat "python " (rope-get-project-root) "manage.py test -s"))
+  (compile (concat "python " (rope-get-project-root) "manage.py test -s")))
+
+(evil-define-key 'normal inferior-python-mode-map
+  (kbd "C-d") 'evil-scroll-down)
+
 (provide '302_python)

@@ -8,6 +8,7 @@
 
 (put 'downcase-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
+(setq-default indent-tabs-mode nil)
 
 ;; flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -33,6 +34,8 @@
 
 ;; enable autopair in all buffers
 (autopair-global-mode) 
+
+;; etags stuff
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Key Bindings

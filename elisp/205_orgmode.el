@@ -11,9 +11,8 @@
 
 
 ;; import todos
-(setq org-agenda-files (list "~/Dropbox/org/dissertation.org"
+(setq org-agenda-files (list "~/Dropbox/org/diss.org"
                              "~/Dropbox/org/gtd.org"
-                             "~/Dropbox/org/projects.org"
                              "~/Dropbox/org/work.org"
                              ))
 
@@ -68,6 +67,13 @@
 (require 'org-drill)
 (setq org-drill-overdue-interval-factor 1.1) 
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)
+   (R . t)))
+
+(setq org-babel-R-command "/usr/local/bin/R --slave --no-save")
+
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Key Bindings
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -85,8 +91,8 @@
 (evil-define-key 'normal dired-mode-map "0" 'evil-beginning-of-line)
 
 ;; org key bindings  
-(global-set-key (kbd "s-4") 'org-agenda)
-(global-set-key (kbd "s-5") '(lambda () (interactive) (org-capture nil "i")))
+(evil-leader/set-key "a" 'org-agenda)
+(evil-leader/set-key "c" '(lambda () (interactive) (org-capture nil "i")))
 (evil-define-key 'normal org-mode-map "t" 'org-todo)
 (evil-leader/set-key-for-mode 'org-mode "$" 'org-archive-subtree)
 (evil-leader/set-key-for-mode 'org-mode "n" 'org-add-note)
