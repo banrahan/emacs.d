@@ -15,4 +15,12 @@
 
 (evil-leader/set-key "m" 'magit-status)
 
+
+;; set magit executable
+(if (eq system-type 'darwin)
+    (setq magit-git-executable '"/usr/local/bin/git")) 
+(if (eq system-type 'gnu/linux)
+    (setq magit-git-executable '"/usr/bin/git"))
+
+
 (provide '207_magit)

@@ -34,9 +34,6 @@
 ;; enable autopair in all buffers
 (autopair-global-mode) 
 
-;; set magit executable
-(setq magit-git-executable '"/usr/local/bin/git")
-
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Key Bindings
 ;;;;;;;;;;;;;;;;;;;;;;

@@ -8,8 +8,16 @@
       user-full-name "Ben Hanrahan"
       message-signature nil)
 
-(setq mu4e-mu-binary "/usr/local/bin/mu"
-      mu4e-maildir "~/.mail")
+
+
+(if (eq system-type 'darwin)
+    (setq mu4e-mu-binary "/usr/local/bin/mu"))
+(if (eq system-type 'gnu/linux)
+    (progn
+      (setq mu4e-mu-binary "/usr/bin/mu")
+      (setq mu4e-msg2pdf "/usr/bin/msg2pdf")))
+
+(setq mu4e-maildir "~/.mail")
 
 (setq mu4e-drafts-folder "/gmail/[Gmail].Drafts"
       mu4e-sent-folder   "/gmail/[Gmail].Sent Mail"
@@ -51,6 +59,7 @@
       smtpmail-smtp-server "smtp.gmail.com"
       smtpmail-smtp-service 587
       smtpmail-debug-info t)
+
 
 (setq message-kill-buffer-on-exit t)
 (mu4e)

@@ -9,26 +9,49 @@
 
 ;;;; Shell Paths
 
-(setenv "PATH"
-   (concat
-    "/usr/local/bin" ":"
-    "/usr/local/share/python/" ":"
-    "/usr/local/texlive/2008/bin/universal-darwin" ":"
-    "/usr/local/sbin" ":"
-    "/Users/bhanrahan/.emacs.d/scripts" ":"
-    "/Users/bhanrahan/bin" ":"
-    "/usr/bin" ":"
-    "/bin" ":"
-    "/usr/sbin" ":"
-    "/sbin" ":"
-    "/usr/local/bin" ":"
-    "/opt/X11/bin" ":"
-   (getenv "PATH"))
-)
+
+;;;; PATH and other env variables
+(if (eq system-type 'darwin)
+    (progn
+      (setenv "PATH"
+	      (concat
+	       "/usr/local/bin" ":"
+	       "/usr/local/share/python/" ":"
+	       "/usr/local/texlive/2008/bin/universal-darwin" ":"
+	       "/usr/local/sbin" ":"
+	       "/Users/bhanrahan/.emacs.d/scripts" ":"
+	       "/Users/bhanrahan/bin" ":"
+	       "/usr/bin" ":"
+	       "/bin" ":"
+	       "/usr/sbin" ":"
+	       "/sbin" ":"
+	       "/usr/local/bin" ":"
+	       "/opt/X11/bin" ":"
+	       (getenv "PATH"))
+	      )
+      (setenv "PYMACS_PYTHON" "python")))
+
+(if (eq system-type 'gnu/linux)
+    (progn
+      (setenv "PATH"
+	      (concat
+	       "/usr/local/bin" ":"
+	       "/usr/bin/python2" ":"
+	       "/usr/local/texlive/2008/bin/universal-darwin" ":"
+	       "/usr/local/sbin" ":"
+	       "/home/banrahan/.emacs.d/scripts" ":"
+	       "/home/banrahan/bin" ":"
+	       "/usr/bin" ":"
+	       "/bin" ":"
+	       "/usr/sbin" ":"
+	       "/sbin" ":"
+	       "/usr/local/bin" ":"
+	       (getenv "PATH"))
+	      )
+      (setenv "PYMACS_PYTHON" "python2")))
 
 
 ;;;; Emacs Paths
-
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/site-elisp")
 (add-to-list 'load-path "~/.emacs.d/site-elisp/pony-mode/src")
