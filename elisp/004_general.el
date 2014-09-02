@@ -35,6 +35,9 @@
 ;; enable autopair in all buffers
 (autopair-global-mode) 
 
+;; dired, suggest adjacent dired directory for some commands
+(setq dired-dwim-target t)
+
 ;; etags stuff
 
 ;;;;;;;;;;;;;;;;;;;;;;

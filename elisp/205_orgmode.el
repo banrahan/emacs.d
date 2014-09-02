@@ -11,10 +11,7 @@
 
 
 ;; import todos
-(setq org-agenda-files (list "~/Dropbox/org/diss.org"
-                             "~/Dropbox/org/gtd.org"
-                             "~/Dropbox/org/work.org"
-                             ))
+(setq org-agenda-files '("~/Dropbox/org"))
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
