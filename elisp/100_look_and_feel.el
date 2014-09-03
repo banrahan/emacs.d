@@ -7,9 +7,15 @@
 ;;; Code:
 
 ;;; Font
-(set-face-attribute 'default nil
-                    :height 150
-                    :family "Inconsolata")
+(if (eq system-type 'gnu/linux)
+    (set-face-attribute 'default nil
+                        :height 150
+                        :family "Inconsolata"))
+
+(if (eq system-type 'darwin)
+    (set-face-attribute 'default nil
+                        :height 160
+                        :family "Monaco"))
 
 ;;;; Various
 ;; Turn off that blasted blinking cursor
