@@ -12,7 +12,8 @@
   "c" 'magit-commit
   "F" 'magit-pull
   "P" 'magit-push
-  "q" 'magit-mode-quit-window)
+  "q" 'magit-mode-quit-window
+  "l" 'magit-key-mode-popup-logging)
 
 (evil-leader/set-key "m" 'magit-status)
 

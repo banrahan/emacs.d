@@ -51,4 +51,7 @@
 (evil-define-key 'normal inferior-python-mode-map
   (kbd "C-d") 'evil-scroll-down)
 
+(define-key python-mode-map (kbd "C-c C-d") 'django-nosetests-one)
+(define-key django-mode-map (kbd "C-c C-d") 'django-nosetests-one)
+
 (provide '302_python)
