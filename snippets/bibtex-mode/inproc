@@ -1,0 +1,13 @@
+# name: @inproceedings
+# expand-env: ((yas/indent-line 'fixed))
+# key: inproc
+# --
+@inproceedings{$1,
+  author={$2},
+  title={$3},
+  year={$4},
+  address={$5},
+  pages={$8},
+  booktitle={$9},
+  publisher={$10},
+}$0

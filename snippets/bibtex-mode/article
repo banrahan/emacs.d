@@ -1,0 +1,15 @@
+# name: @article
+# expand-env: ((yas/indent-line 'fixed))
+# key: article 
+# --
+@article{$1,
+  author={$2},
+  title={$3},
+  year={$4},
+  address={$5},
+  pages={$8},
+  journal={$9},
+  publisher={$10},
+  volume={},
+  number={},
+}$0

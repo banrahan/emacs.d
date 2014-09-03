@@ -63,58 +63,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Emacs Auto Config
 ;;;;;;;;;;;;;;;;;;;;;;
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    (quote
-     (safe-local-variable-values
-      (quote
-       ((pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/ipython" :settings "settings")
-        (python-mode
-         (python-shell-interpreter . "python")
-         (python-shell-interpreter-args . "/Users/bhanraha/working/crowd_plugins/crowd_server/manage.py shell")
-         (python-shell-prompt-regexp . "In \\[[0-9]+\\]: ")
-         (python-shell-prompt-output-regexp . "Out\\[[0-9]+\\]: ")
-         (python-shell-completion-setup-code . "from IPython.core.completerlib import module_completion")
-         (python-shell-completion-module-string-code . "';'.join(module_completion('''%s'''))
-")
-         (python-shell-completion-string-code . "';'.join(get_ipython().Completer.all_completions('''%s'''))
-")
-         (python-shell-virtualenv-path . "/Users/bhanraha/working/env/crowd_server"))
-        (python-shell-completion-string-code . "';'.join(get_ipython().Completer.all_completions('''%s'''))
-")
-        (python-shell-completion-module-string-code . "';'.join(module_completion('''%s'''))
-")
-        (python-shell-completion-setup-code . "from IPython.core.completerlib import module_completion")
-        (python-shell-interpreter-args . "/Users/bhanraha/working/crowd_plugins/crowd_server/manage.py shell")
-        (python-shell-interpreter . "python")
-        (pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/python" :settings "settings" :pony-sqlite-program "/usr/bin/sqlite3")
-        (pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/python" :settings "settings")
-        (pony-settings make-pony-project :python "/Users/bhanraha/working/env/crowd_server/bin/python")
-        (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/bin/python")
-        (pony-settings make-pony-project :python "/Users/bhanraha/working/competitions/env/bin/python")))))))
- '(org-drill-optimal-factor-matrix
-   (quote
-    ((1
-      (2.36 . 3.86)
-      (2.1799999999999997 . 3.72)
-      (1.96 . 3.58)
-      (1.7000000000000002 . 3.44)
-      (2.6 . 4.14)
-      (2.5 . 4.0)))))
- '(org-modules
-   (quote
-    (org-bbdb org-bibtex org-docview org-gnus org-info org-jsinfo org-irc org-mew org-mhe org-rmail org-vm org-wl org-w3m org-drill org-learn)))
- )
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 ;;; init.el ends here

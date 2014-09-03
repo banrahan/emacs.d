@@ -3,7 +3,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;
 
 ;; pymacs stuff
-(setq pymacs-python-command "/usr/local/bin/python")
+;; set magit executable
+(if (eq system-type 'darwin)
+    (setq pymacs-python-command "/usr/local/bin/python"))
+(if (eq system-type 'gnu/linux)
+    (setq pymacs-python-command "/usr/bin/python2"))
+
 (autoload 'pymacs-apply "pymacs")
 (autoload 'pymacs-call "pymacs")
 (autoload 'pymacs-eval "pymacs" nil t)

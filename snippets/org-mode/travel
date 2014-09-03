@@ -1,0 +1,49 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Travel List
+# key: travel
+# --
+** Clothes
+- [ ] Undershirts
+- [ ] Socks
+- [ ] Underwear
+- [ ] Collared shirts
+- [ ] T-shirts
+- [ ] Pants
+- [ ] Coats
+- [ ] sweat shirts
+- [ ] Sunglasses
+- [ ] Shoes
+- [ ] rain jacket
+** Documents
+- [ ] Passport
+- [ ] Titre de Sejour
+- [ ] Driving license
+** Tickets
+- [ ] Plane tickets
+- [ ] Bus tickets
+- [ ] Hotel information
+- [ ] Rental car information
+** Toiletries
+- [ ] Toothbrush
+- [ ] Soap
+- [ ] Shampoo
+- [ ] Toothpaste
+- [ ] Deodorant
+- [ ] Razor
+- [ ] Contacts
+- [ ] Mouth guard
+- [ ] Nail clippers
+** Electronics
+- [ ] iPhone charger
+- [ ] kindle
+- [ ] kindle cord
+- [ ] headphones
+- [ ] iPad
+- [ ] Computer stuff
+** misc
+- [ ] umbrella
+- [ ] coffee maker
+- [ ] sunscreen
+- [ ] tour book
+- [ ] plastic travel silverware
+- [ ] cork skrew

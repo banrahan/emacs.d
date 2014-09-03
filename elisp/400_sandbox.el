@@ -55,4 +55,8 @@
 ;;(setq sublimity-scroll-drift-length 1); sublimity-scroll-weight 4)
 ;;(setq sublimity-attractive-centering-width nil)
 ;(sublimity-map-set-delay 5)
+
+;; need to put this in the locals
+(menu-bar-mode -1)
+
 (provide '400_sandbox)

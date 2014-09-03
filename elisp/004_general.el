@@ -35,11 +35,10 @@
 ;; enable autopair in all buffers
 (autopair-global-mode) 
 
-;; set magit executable
-(setq magit-git-executable '"/usr/local/bin/git")
+;; dired, suggest adjacent dired directory for some commands
+(setq dired-dwim-target t)
 
 ;; etags stuff
-
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Key Bindings

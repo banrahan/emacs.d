@@ -8,14 +8,8 @@
 
 ;;; Font
 (set-face-attribute 'default nil
-                    :height 200
-                    :foundry "apple"
-                    :family "Monaco")
-
-(set-face-attribute 'elscreen-tab-background-face nil
-                    :background "#073642"
-                    :foreground "#93A1A1"
-                    )
+                    :height 150
+                    :family "Inconsolata")
 
 ;;;; Various
 ;; Turn off that blasted blinking cursor

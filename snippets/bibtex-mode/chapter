@@ -1,0 +1,14 @@
+# name: @chapter
+# expand-env: ((yas/indent-line 'fixed))
+# key: chapter
+# --
+@book{$1,
+  author={$2},
+  title={$3},
+  year={$4},
+  address={$5},
+  chapter={$6},
+  pages={$8},
+  publisher={$10},
+  editor={$11},
+}$0
