@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: emph_binding
+# binding: s-i
+# expand-env: (yas-wrap-around-region 'nil)
+# --
+\emph{`yas/selected-text`$0}

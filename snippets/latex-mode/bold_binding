@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: bold_binding
+# binding: s-b
+# expand-env: (yas-wrap-around-region 'nil)
+# --
+\textbf{`yas/selected-text`$0}

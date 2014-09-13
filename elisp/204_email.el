@@ -68,7 +68,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Key Bindings
 ;;;;;;;;;;;;;;;;;;;;;;
-(global-set-key (kbd "s-i") (lambda () (interactive) (mu4e~headers-jump-to-maildir '"/gmail/INBOX")))
 (evil-define-key 'normal mu4e-headers-mode-map "g" (lambda () (interactive) (mu4e-update-mail-and-index t)))
 (evil-define-key 'normal mu4e-view-mode-map "g" (lambda () (interactive) (mu4e-update-mail-and-index t)))
 
