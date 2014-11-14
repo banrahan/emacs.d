@@ -52,7 +52,6 @@
 
 
 ;;;; Emacs Paths
-(add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/site-elisp")
 (add-to-list 'load-path "~/.emacs.d/site-elisp/pony-mode/src")
 (add-to-list 'load-path "~/.emacs.d/site-elisp/org/lisp")

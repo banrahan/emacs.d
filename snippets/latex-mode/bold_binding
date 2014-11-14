@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
 # name: bold_binding
+# key: bold_binding
 # binding: s-b
 # expand-env: (yas-wrap-around-region 'nil)
 # --
