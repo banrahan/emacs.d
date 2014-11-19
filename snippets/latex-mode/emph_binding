@@ -1,5 +1,6 @@
 # -*- mode: snippet -*-
 # name: emph_binding
+# key: emph_binding
 # binding: s-i
 # expand-env: (yas-wrap-around-region 'nil)
 # --
