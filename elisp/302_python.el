@@ -3,7 +3,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;
 
 ;; pymacs stuff
-;; set magit executable
 (if (eq system-type 'darwin)
     (setq pymacs-python-command "/usr/local/bin/python"))
 (if (eq system-type 'gnu/linux)

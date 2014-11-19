@@ -1,4 +1,3 @@
-
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; org-mode
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -14,6 +13,10 @@
 (setq org-agenda-files '("~/Dropbox/org"))
 
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+
+;; set the location to archive
+(setq org-archive-location "~/Dropbox/org/.archive.org::* From %s")
+
 
 ;; not needed when global-font-lock-mode is on
 (add-hook 'org-mode-hook 'turn-on-font-lock) 

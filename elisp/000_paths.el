@@ -5,7 +5,7 @@
 ;; I still can't get magit to commit correctly run if
 ;;   I don't start it in the shell
 ;;
-;;; Code:
+;; Code:
 
 ;;;; Shell Paths
 
@@ -16,7 +16,6 @@
       (setenv "PATH"
 	      (concat
 	       "/usr/local/bin" ":"
-	       "/usr/local/share/python/" ":"
 	       "/usr/local/texlive/2008/bin/universal-darwin" ":"
 	       "/usr/local/sbin" ":"
 	       "/Users/bhanrahan/.emacs.d/scripts" ":"
@@ -30,6 +29,14 @@
 	       (getenv "PATH"))
 	      )
       (setenv "PYMACS_PYTHON" "python")))
+
+(if (eq system-type 'darwin)
+    (progn
+      (push "~/.virtualenvs/default/bin" exec-path)
+      (setenv "PATH"
+              (concat
+               "~/.virtualenvs/default/bin" ":"
+               (getenv "PATH")))))
 
 (if (eq system-type 'gnu/linux)
     (progn
@@ -57,6 +64,19 @@
 (add-to-list 'load-path "~/.emacs.d/site-elisp/pony-mode/src")
 (add-to-list 'load-path "~/.emacs.d/site-elisp/org/lisp")
 (add-to-list 'load-path "~/.emacs.d/site-elisp/org/contrib/lisp" t)
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(add-to-list 'load-path "~/.emacs.d/el-get/pymacs")
+(add-to-list 'load-path "~/.virtualenvs/default/bin")
+(unless (require 'el-get nil t)
+  (url-retrieve
+   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
+   (lambda (s)
+     (end-of-buffer)
+     (eval-print-last-sexp))))
+
+(progn (cd "~/.emacs.d/el-get")
+       (normal-top-level-add-subdirs-to-load-path))
+
 (progn (cd "~/.emacs.d/site-elisp")
        (normal-top-level-add-subdirs-to-load-path))
 

@@ -62,7 +62,7 @@
 ;; imenu org mode
 (defun banrahan-org-imenu ()
   (interactive)
-  (find-file-existing "~/Dropbox/org/projects.org")
+  (find-file-existing "~/Dropbox/org/gtd.org")
   (widen)
   (helm-org-headlines))
 
@@ -95,6 +95,7 @@
 (global-set-key (kbd "s-g") 'helm-do-grep)
 (global-set-key (kbd "s-f") 'helm-occur)
 (global-set-key (kbd "s-k") 'helm-show-kill-ring)
+(global-set-key (kbd "s-5") 'banrahan-org-imenu)
 (global-set-key "\M-x" 'helm-M-x)
 
 (provide '203_helm)

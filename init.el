@@ -29,7 +29,7 @@
 (require '201_eshell)
 (require '202_erc)
 (require '203_helm)
-(require '204_email)
+;(require '204_email)
 (require '205_orgmode)
 (require '206_jabber)
 (require '207_magit)

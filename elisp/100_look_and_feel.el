@@ -14,7 +14,7 @@
 
 (if (eq system-type 'darwin)
     (set-face-attribute 'default nil
-                        :height 160
+                        :height 170
                         :family "Monaco"))
 
 ;;;; Various
