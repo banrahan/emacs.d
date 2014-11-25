@@ -113,4 +113,7 @@
                                             )
   )
 
+; turn on flyspell
+(add-hook 'org-mode-hook 'turn-on-flyspell)
+
 (provide '205_orgmode)

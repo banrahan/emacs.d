@@ -57,6 +57,8 @@
 	      )
       (setenv "PYMACS_PYTHON" "python2")))
 
+(if (eq system-type 'darwin)
+    (setq ispell-program-name "/usr/local/bin/aspell"))
 
 ;;;; Emacs Paths
 (add-to-list 'load-path "~/.emacs.d/site-elisp")
