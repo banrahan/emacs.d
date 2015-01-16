@@ -11,7 +11,7 @@
 ;;; snippets
 ;;;;;;;;;;;;;;;;;;;;;;
 (setq yas-snippet-dirs
-      '("~/.emacs.d/elpa/yasnippet/snippets"
+      '("~/.emacs.d/el-get/yasnippet/snippets"
         "~/.emacs.d/snippets"
         ))
 

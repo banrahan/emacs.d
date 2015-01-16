@@ -64,8 +64,8 @@
               ("EMAIL" :foreground "forest green" :weight bold)
               ("PHONE" :foreground "forest green" :weight bold))))
 
-(require 'org-drill)
-(setq org-drill-overdue-interval-factor 1.1) 
+;; (require 'org-drill)
+;; (setq org-drill-overdue-interval-factor 1.1) 
 
 (org-babel-do-load-languages
  'org-babel-load-languages

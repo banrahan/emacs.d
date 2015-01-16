@@ -6,16 +6,58 @@
 ;;
 ;;; Code:
 
-(require 'package)
-(add-to-list 'package-archives
-  '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
+(require 'package)
 (package-initialize)
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+(setq my-packages
+      '(auctex
+	auto-complete
+	autopair
+	ctable
+	deferred
+	diminish
+	el-get
+	elscreen
+	emmet-mode
+	epc
+	evil
+	evil-leader
+	evil-surround
+	evil-numbers
+	ess
+        exec-path-from-shell
+        flycheck
+	fuzzy
+	helm
+	helm-cmd-t
+	helm-c-yasnippet
+	jedi
+	magit
+        nose
+	popup
+	popwin
+	pony-mode
+	powerline
+	projectile
+	pymacs
+	python-django
+	python-environment
+	rope
+	ropemacs
+	ropemode
+        solarized-emacs
+	yasnippet))
+
+(el-get 'sync my-packages)
 
 (require 'ess-site)
 (require 'evil)
 (require 'evil-leader)
-(require 'surround)
+(require 'evil-surround)
 (require 'evil-numbers)
 (require 'org-agenda)
 (require 'auto-complete)
@@ -30,6 +72,7 @@
 (require 'tex-site)
 (require 'reftex)
 (require 'emmet-mode)
+(require 'flycheck)
 (require 'org)
 (require 'yasnippet)
 (require 'helm-config)
@@ -44,9 +87,6 @@
 (require 'projectile)
 (require 'helm-projectile)
 (require 'powerline)
-(require 'jabber)
-(require 'mu4e)
-(require 'smtpmail)
 (require 'diminish)
 
 (provide '001_packages)

@@ -16,10 +16,10 @@
       (setenv "PATH"
 	      (concat
 	       "/usr/local/bin" ":"
-	       "/usr/local/texlive/2008/bin/universal-darwin" ":"
+	       "/usr/texbin/" ":"
 	       "/usr/local/sbin" ":"
-	       "/Users/bhanrahan/.emacs.d/scripts" ":"
-	       "/Users/bhanrahan/bin" ":"
+	       "/Users/bhanraha/.emacs.d/scripts" ":"
+	       "/Users/bhanraha/bin" ":"
 	       "/usr/bin" ":"
 	       "/bin" ":"
 	       "/usr/sbin" ":"
@@ -68,12 +68,17 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 (add-to-list 'load-path "~/.emacs.d/el-get/pymacs")
 (add-to-list 'load-path "~/.virtualenvs/default/bin")
-(unless (require 'el-get nil t)
-  (url-retrieve
-   "https://github.com/dimitri/el-get/raw/master/el-get-install.el"
-   (lambda (s)
-     (end-of-buffer)
-     (eval-print-last-sexp))))
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(el-get 'sync)
 
 (progn (cd "~/.emacs.d/el-get")
        (normal-top-level-add-subdirs-to-load-path))

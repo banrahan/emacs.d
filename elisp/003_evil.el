@@ -33,7 +33,7 @@
 (global-evil-leader-mode t)
 (evil-leader/set-leader "<SPC>")
 
-(global-surround-mode 1)
+;(global-surround-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Key Bindings
