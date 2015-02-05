@@ -15,7 +15,6 @@
 (require '000_paths)
 (require '001_packages)
 (require '002_banrahan)
-(require '003_evil)
 (require '004_general)
 (require '005_autocomplete)
 
@@ -30,11 +29,9 @@
 (require '202_erc)
 (require '203_helm)
 (require '205_orgmode)
-(require '207_magit)
 
 ;; language configurations
 (require '300_languages)
-(require '301_latex)
 (require '302_python)
 
 (require '400_sandbox)

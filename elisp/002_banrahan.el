@@ -6,27 +6,6 @@
 ;;
 ;;; Code:
 
-(defvar dark-light)
-(setq dark-light 'dark)
-(defun banrahan-toggle-solarized ()
-  "Toggle between light and dark solarized themes."
-  (interactive)
-  (if (eq dark-light 'light)
-      (progn (setq dark-light 'dark) (load-theme 'solarized-dark t))
-    (progn (setq dark-light 'light) (load-theme 'solarized-light t))
-    )
-  )
-
-(defun banrahan-center-screen ()
-  (interactive)
-  (set-fringe-style '(800 . 200))
-  )
-
-(defun banrahan-reset-center-screen ()
-  (interactive)
-  (set-fringe-style '(0 . 0))
-  )
-
 (defun banrahan-open-in-external-app (&optional file)
   "Open the current file or dired marked files in external app. The app is chosen from your OS's preference."
   (interactive)

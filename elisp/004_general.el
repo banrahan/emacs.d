@@ -44,9 +44,6 @@
 ;;;; Key Bindings
 ;;;;;;;;;;;;;;;;;;;;;;
 
-;; toggle solarized
-(evil-leader/set-key "-" 'banrahan-toggle-solarized)
-
 ;; commenting
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region)
 

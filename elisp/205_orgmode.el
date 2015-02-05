@@ -83,9 +83,6 @@
 ;; org evil movement commands
 (evil-define-key 'normal org-mode-map "k" 'previous-line) ; for some reason evil-previous-line moves up two in column view
 (evil-define-key 'normal org-mode-map "j" 'next-line) ; for some reason evil-next-line moves down and switches columns in column view
-;; magit evil movement commands
-(define-key magit-status-mode-map (kbd "C-j") 'evil-next-line)
-(define-key magit-status-mode-map (kbd "C-k") 'evil-previous-line)
 ;; dired evil movement commands
 (evil-define-key 'normal dired-mode-map "$" 'evil-end-of-line)
 (evil-define-key 'normal dired-mode-map "0" 'evil-beginning-of-line)

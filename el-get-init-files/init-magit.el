@@ -1,6 +1,9 @@
-;;;;;;;;;;;;;;;;;;;;;;
-;;;; Key Bindings
-;;;;;;;;;;;;;;;;;;;;;;
+;; evil stuff for magit
+(setq evil-normal-state-modes (append '(magit-status-mode)
+                                      evil-normal-state-modes))
+
+(setq evil-emacs-state-modes (delete 'magit-status-mode
+                                     evil-emacs-state-modes))
 
 (evil-define-key 'normal magit-status-mode-map
   "s" 'magit-stage-item
@@ -23,6 +26,3 @@
     (setq magit-git-executable '"/usr/local/bin/git")) 
 (if (eq system-type 'gnu/linux)
     (setq magit-git-executable '"/usr/bin/git"))
-
-
-(provide '207_magit)

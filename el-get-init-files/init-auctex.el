@@ -1,7 +1,3 @@
-;;;;;;;;;;;;;;;;;;;;;;
-;;;; LaTex
-;;;;;;;;;;;;;;;;;;;;;;
-
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq TeX-PDF-mode t)
@@ -20,5 +16,3 @@
 
 ;; latex 
 (evil-define-key 'normal LaTeX-mode-map "[" 'reftex-citation)
-
-(provide '301_latex)

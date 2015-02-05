@@ -13,9 +13,10 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
+(setq el-get-user-package-directory "~/.emacs.d/el-get-init-files")
+
 (setq my-packages
-      '(auctex
-	auto-complete
+      '(auto-complete
 	autopair
 	ctable
 	deferred
@@ -24,10 +25,6 @@
 	elscreen
 	emmet-mode
 	epc
-	evil
-	evil-leader
-	evil-surround
-	evil-numbers
 	ess
         exec-path-from-shell
         flycheck
@@ -36,7 +33,6 @@
 	helm-cmd-t
 	helm-c-yasnippet
 	jedi
-	magit
         nose
 	popup
 	popwin
@@ -49,28 +45,37 @@
 	rope
 	ropemacs
 	ropemode
-        solarized-emacs
 	yasnippet))
 
 (el-get 'sync my-packages)
 
+
+(el-get-bundle evil)
+(el-get-bundle evil-leader)
+(el-get-bundle evil-surround)
+(el-get-bundle evil-numbers)
+
+(el-get-bundle solarized-emacs)
+
+(el-get-bundle js2-mode)
+(el-get-bundle magit)
+(el-get-bundle auctex)
+
 (require 'ess-site)
-(require 'evil)
-(require 'evil-leader)
-(require 'evil-surround)
-(require 'evil-numbers)
+;; (require 'evil)
+;; (require 'evil-leader)
+;; (require 'evil-surround)
+;; (require 'evil-numbers)
 (require 'org-agenda)
 (require 'auto-complete)
 (require 'auto-complete-config)
 (require 'autopair)
-(require 'magit)
+;; (require 'magit)
 (require 'pymacs)
 (require 'django-html-mode)
 (require 'django-mode)
 (require 'pony-mode)
 (require 'python-django)
-(require 'tex-site)
-(require 'reftex)
 (require 'emmet-mode)
 (require 'flycheck)
 (require 'org)
