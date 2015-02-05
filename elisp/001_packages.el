@@ -54,6 +54,7 @@
 (el-get-bundle js2-mode)
 (el-get-bundle magit)
 (el-get-bundle auctex)
+(el-get-bundle markdown-mode)
 
 (el-get-bundle powerline)
 (el-get-bundle diminish)
@@ -85,10 +86,8 @@
 (require 'dired)
 (require 'popwin)
 (require 'erc)
-(require 'elscreen)
 (require 'projectile)
 (require 'helm-projectile)
-(require 'diminish)
 
 (provide '001_packages)
 ;;; 001_packages.el ends here

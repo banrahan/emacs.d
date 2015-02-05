@@ -8,7 +8,7 @@
 (setq solarized-use-more-italic t)
 
 (defvar dark-light)
-(setq dark-light 'dark)
+(setq dark-light 'light)
 (defun banrahan-toggle-solarized ()
   "Toggle between light and dark solarized themes."
   (interactive)

@@ -17,3 +17,4 @@ places
 /site-elisp/Pymacs/
 /jabber-avatar-cache/
 /.python-environments/
+/el-get-init-files/init-solarized-emacs.elc
