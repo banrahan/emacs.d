@@ -1,11 +1,3 @@
-;;; 101_powerline.el --- configure the status line
-;;
-;;; Commentary:
-;;
-;; Just define a new style and use it
-;;
-;;; Code:
-
 (defun powerline-banrahan-theme ()
   "Setup a banrahan mode-line."
   (interactive)
@@ -61,5 +53,11 @@
 
 (powerline-banrahan-theme)
 
-(provide '101_powerline)
-;;; 101_powerline.el ends here
+(set-face-attribute 'powerline-active1 nil
+                    :background "#93A1A1"
+                    :foreground "#073642"
+		    )
+(set-face-attribute 'powerline-active2 nil
+                    :background "#93A1A1"
+                    :foreground "#073642"
+		    )

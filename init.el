@@ -16,15 +16,12 @@
 (require '001_packages)
 (require '002_banrahan)
 (require '004_general)
-(require '005_autocomplete)
 
 ;; configuration for look and feel
 (require '100_look_and_feel)
-(require '101_powerline)
 (require '102_folding)
 
 ;; configuration for specific tools
-(require '200_tools)
 (require '201_eshell)
 (require '202_erc)
 (require '203_helm)
@@ -35,25 +32,6 @@
 (require '302_python)
 
 (require '400_sandbox)
-
-;;;; sandbox
-(setq font-lock-maximum-decoration t)
-(defface font-lock-func-face 
-    '((nil (:foreground "#b58900" :weight bold))
-      (t (:bold t :italic t)))
-  "Font Lock mode face used for function calls."
-  :group 'font-lock-highlighting-faces)
-
-(font-lock-add-keywords
- 'emacs-lisp-mode
-  '(
-    ("\\<\\(interactive\\)" . 'font-lock-keyword-face)
-    ("\\<\\(setq\\)" . 'font-lock-function-name-face)
-    ("\\<\\(push\\)" . 'font-lock-function-name-face)
-    ("\\<\\(put\\)" . 'font-lock-function-name-face)
-    ("\\<\\(load-library\\)" . 'font-lock-function-name-face)
-  )
-)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Emacs Auto Config

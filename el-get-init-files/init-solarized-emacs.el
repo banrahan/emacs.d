@@ -1,6 +1,12 @@
 ;; toggle solarized
 (evil-leader/set-key "-" 'banrahan-toggle-solarized)
 
+;; make the modeline high contrast
+(setq solarized-high-contrast-mode-line t)
+
+;; Use more italics
+(setq solarized-use-more-italic t)
+
 (defvar dark-light)
 (setq dark-light 'dark)
 (defun banrahan-toggle-solarized ()
@@ -11,3 +17,5 @@
     (progn (setq dark-light 'light) (load-theme 'solarized-light t))
     )
   )
+
+(load-theme 'solarized-light t)

@@ -1,14 +1,6 @@
-;;; 005_autocomplete.el --- autocomplete stuff
-;;
-;;; Commentary:
-;;
-;; bunch of autocomplete stuff
-;;
-;;; Code:
-
 (global-auto-complete-mode t)
 (ac-config-default)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete/dict")
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/el-get/auto-complete/dict")
 
 (setq ac-auto-show-menu 0)
 
@@ -28,16 +20,9 @@
                 html-mode LaTeX-mode))
   (add-to-list 'ac-modes mode))
 
-
-;;;;;;;;;;;;;;;;;;;;;;
-;;;; Key Bindings
-;;;;;;;;;;;;;;;;;;;;;;
 ;; bind c-tab to autocomplete
 (global-set-key (kbd "C-<tab>") 'auto-complete)
 
 ;; next prev commands in popup
 (define-key ac-completing-map (kbd "C-n") 'ac-next)
 (define-key ac-completing-map (kbd "C-p") 'ac-previous)
-
-(provide '005_autocomplete)
-;;; 005_autocomplete.el ends here

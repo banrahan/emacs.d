@@ -2,33 +2,9 @@
 ;;
 ;;; Commentary:
 ;;
-;; I still can't get magit to commit correctly run if
-;;   I don't start it in the shell
-;;
 ;; Code:
 
 ;;;; Shell Paths
-
-
-;;;; PATH and other env variables
-(if (eq system-type 'darwin)
-    (progn
-      (setenv "PATH"
-	      (concat
-	       "/usr/local/bin" ":"
-	       "/usr/texbin/" ":"
-	       "/usr/local/sbin" ":"
-	       "/Users/bhanraha/.emacs.d/scripts" ":"
-	       "/Users/bhanraha/bin" ":"
-	       "/usr/bin" ":"
-	       "/bin" ":"
-	       "/usr/sbin" ":"
-	       "/sbin" ":"
-	       "/usr/local/bin" ":"
-	       "/opt/X11/bin" ":"
-	       (getenv "PATH"))
-	      )
-      (setenv "PYMACS_PYTHON" "python")))
 
 (if (eq system-type 'darwin)
     (progn
@@ -37,6 +13,7 @@
               (concat
                "~/.virtualenvs/default/bin" ":"
                (getenv "PATH")))))
+
 
 (if (eq system-type 'gnu/linux)
     (progn
@@ -57,18 +34,12 @@
 	      )
       (setenv "PYMACS_PYTHON" "python2")))
 
-(if (eq system-type 'darwin)
-    (setq ispell-program-name "/usr/local/bin/aspell"))
-
 ;;;; Emacs Paths
 (add-to-list 'load-path "~/.emacs.d/site-elisp")
-(add-to-list 'load-path "~/.emacs.d/site-elisp/pony-mode/src")
-(add-to-list 'load-path "~/.emacs.d/site-elisp/org/lisp")
-(add-to-list 'load-path "~/.emacs.d/site-elisp/org/contrib/lisp" t)
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-(add-to-list 'load-path "~/.emacs.d/el-get/pymacs")
 (add-to-list 'load-path "~/.virtualenvs/default/bin")
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(if (eq system-type 'darwin)
+    (setq ispell-program-name "/usr/local/bin/aspell"))
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer

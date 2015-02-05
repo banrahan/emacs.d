@@ -16,28 +16,19 @@
 (setq el-get-user-package-directory "~/.emacs.d/el-get-init-files")
 
 (setq my-packages
-      '(auto-complete
-	autopair
+      '(autopair
 	ctable
 	deferred
-	diminish
 	el-get
-	elscreen
 	emmet-mode
 	epc
 	ess
         exec-path-from-shell
-        flycheck
 	fuzzy
-	helm
-	helm-cmd-t
-	helm-c-yasnippet
 	jedi
         nose
 	popup
-	popwin
 	pony-mode
-	powerline
 	projectile
 	pymacs
 	python-django
@@ -49,28 +40,34 @@
 
 (el-get 'sync my-packages)
 
-
 (el-get-bundle evil)
 (el-get-bundle evil-leader)
 (el-get-bundle evil-surround)
 (el-get-bundle evil-numbers)
 
+(el-get-bundle popwin)
+
 (el-get-bundle solarized-emacs)
+(el-get-bundle flycheck)
+(el-get-bundle auto-complete)
 
 (el-get-bundle js2-mode)
 (el-get-bundle magit)
 (el-get-bundle auctex)
 
+(el-get-bundle powerline)
+(el-get-bundle diminish)
+(el-get-bundle elscreen)
+
+(el-get-bundle helm)
+(el-get-bundle helm-cmd-t)
+(el-get-bundle helm-c-yasnippet)
+
 (require 'ess-site)
-;; (require 'evil)
-;; (require 'evil-leader)
-;; (require 'evil-surround)
-;; (require 'evil-numbers)
 (require 'org-agenda)
 (require 'auto-complete)
 (require 'auto-complete-config)
 (require 'autopair)
-;; (require 'magit)
 (require 'pymacs)
 (require 'django-html-mode)
 (require 'django-mode)
@@ -91,7 +88,6 @@
 (require 'elscreen)
 (require 'projectile)
 (require 'helm-projectile)
-(require 'powerline)
 (require 'diminish)
 
 (provide '001_packages)

@@ -10,9 +10,6 @@
 (put 'set-goal-column 'disabled nil)
 (setq-default indent-tabs-mode nil)
 
-;; flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
 ;; Have buffers revert if the file was changed
 (global-auto-revert-mode t)
 
@@ -25,9 +22,6 @@
 (when (fboundp 'winner-mode)
   (winner-mode 1))
 
-;; Dired
-;(add-hook 'dired-load-hook (function (lambda () (load "dired-x"))))
-
 ;; setting fuzzy matching for interactive-do mode
 (ido-mode t)
 (setq ido-enable-flex-matching t) ; fuzzy matching for interactive do mode
@@ -37,8 +31,6 @@
 
 ;; dired, suggest adjacent dired directory for some commands
 (setq dired-dwim-target t)
-
-;; etags stuff
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Key Bindings
