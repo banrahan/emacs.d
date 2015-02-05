@@ -6,10 +6,6 @@
 ;;
 ;;; Code:
 
-
-(require 'package)
-(package-initialize)
-
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
@@ -63,6 +59,7 @@
 (el-get-bundle helm)
 (el-get-bundle helm-cmd-t)
 (el-get-bundle helm-c-yasnippet)
+(el-get-bundle helm-swoop)
 
 (require 'ess-site)
 (require 'org-agenda)

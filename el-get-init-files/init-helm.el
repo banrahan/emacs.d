@@ -39,4 +39,3 @@
 (global-set-key (kbd "s-P") 'helm-M-x)
 (global-set-key (kbd "s-g") 'helm-do-grep)
 (global-set-key (kbd "s-k") 'helm-show-kill-ring)
-(global-set-key "\M-x" 'helm-M-x)
