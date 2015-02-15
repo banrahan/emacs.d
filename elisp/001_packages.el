@@ -48,6 +48,15 @@
 (el-get-bundle coffee-mode)
 (el-get-bundle flymake-coffee)
 
+(el-get-bundle paredit)
+(require 'paredit)
+(el-get-bundle paredit-everywhere-mode)
+
+(el-get-bundle clojure-mode)
+(el-get-bundle clojure-mode-extra-font-locking)
+(el-get-bundle cider)
+(el-get-bundle ac-cider)
+
 (el-get-bundle magit)
 (el-get-bundle auctex)
 (el-get-bundle markdown-mode)
