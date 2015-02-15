@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: char
+# name: CharField
 # key: char
 # --
 ${1:name} = models.CharField(max_length=256)

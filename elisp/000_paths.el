@@ -23,7 +23,7 @@
     (eval-print-last-sexp)))
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-(el-get 'sync)
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-custom-recipes")
 
 (progn (cd "~/.emacs.d/el-get")
        (normal-top-level-add-subdirs-to-load-path))
