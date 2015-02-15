@@ -6,9 +6,6 @@
 ;;
 ;;; Code:
 
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
-
 (setq el-get-user-package-directory "~/.emacs.d/el-get-init-files")
 
 (setq my-packages
@@ -48,6 +45,9 @@
 (el-get-bundle auto-complete)
 
 (el-get-bundle js2-mode)
+(el-get-bundle coffee-mode)
+(el-get-bundle flymake-coffee)
+
 (el-get-bundle magit)
 (el-get-bundle auctex)
 (el-get-bundle markdown-mode)
@@ -85,6 +85,9 @@
 (require 'erc)
 (require 'projectile)
 (require 'helm-projectile)
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
 
 (provide '001_packages)
 ;;; 001_packages.el ends here
