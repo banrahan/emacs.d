@@ -41,5 +41,7 @@
 (defun enable-dired-omit-mode () (dired-omit-mode 1))
 (add-hook 'dired-mode-hook 'enable-dired-omit-mode)
 
+(setq-default tab-width 4) ; emacs 23.1, 24.2, default to 8
+
 (provide '100_look_and_feel)
 ;;; 100_look_and_feel.el ends here

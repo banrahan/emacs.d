@@ -1,0 +1,5 @@
+(global-unset-key (kbd "s-s"))
+(global-set-key (kbd "s-s") 'save-buffer)
+(global-set-key (kbd "s-u") 'sr-speedbar-toggle)
+(setq speedbar-use-images nil)
+(setq sr-speedbar-width 25)

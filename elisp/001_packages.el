@@ -50,7 +50,7 @@
 
 (el-get-bundle paredit)
 (require 'paredit)
-(el-get-bundle paredit-everywhere-mode)
+'(el-get-bundle paredit-everywhere-mode)
 
 (el-get-bundle clojure-mode)
 (el-get-bundle clojure-mode-extra-font-locking)
@@ -69,6 +69,13 @@
 (el-get-bundle helm-cmd-t)
 (el-get-bundle helm-c-yasnippet)
 (el-get-bundle helm-swoop)
+
+(el-get-bundle go-mode)
+(el-get-bundle emacs-go-eldoc
+  :url "https://github.com/syohex/emacs-go-eldoc.git"
+  :features go-eldoc)
+
+(el-get-bundle sr-speedbar)
 
 (require 'ess-site)
 (require 'org-agenda)
