@@ -1,6 +1,8 @@
 ;; provides minibuffer documentation for the code you're typing into the repl
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 
+(setq cider-repl-tab-command 'indent-for-tab-command)
+
 ;; go right to the REPL buffer when it's finished connecting
 (setq cider-repl-pop-to-buffer-on-connect t)
 
@@ -16,6 +18,7 @@
 
 ;; enable paredit in your REPL
 (add-hook 'cider-repl-mode-hook 'paredit-mode)
+(add-hook 'cider-mode-hook (lambda () (paredit-mode 1)))
 
 ;; Use clojure mode for other extensions
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))

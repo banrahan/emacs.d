@@ -15,7 +15,6 @@
 	el-get
 	emmet-mode
 	epc
-	ess
         exec-path-from-shell
 	fuzzy
 	jedi
@@ -41,7 +40,6 @@
 (el-get-bundle popwin)
 
 (el-get-bundle solarized-emacs)
-(el-get-bundle flycheck)
 (el-get-bundle auto-complete)
 
 (el-get-bundle js2-mode)
@@ -70,12 +68,11 @@
 (el-get-bundle helm-c-yasnippet)
 (el-get-bundle helm-swoop)
 
-(el-get-bundle go-mode)
-(el-get-bundle emacs-go-eldoc
-  :url "https://github.com/syohex/emacs-go-eldoc.git"
-  :features go-eldoc)
+;(el-get-bundle ess)
 
 (el-get-bundle sr-speedbar)
+
+;(el-get-bundle flycheck)
 
 (require 'ess-site)
 (require 'org-agenda)
@@ -93,7 +90,7 @@
 (require 'yasnippet)
 (require 'helm-config)
 (require 'helm-files)
-(require 'helm-match-plugin)
+;(require 'helm-match-plugin)
 (require 'helm-cmd-t)
 (require 'helm-c-yasnippet)
 (require 'dired)
